@@ -4,12 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "deploy": "gh-pages -d out",
-    "static": "next build && next export && touch ./out/.nojekyll && echo 'www.bare-recipe.com' > ./out/CNAME",
+   "build": "next build && next export",
+  "deploy": "gh-pages -d out",
     "start": "next start",
-    "lint": "eslint",
-    "export": "next build && next export"
+    "lint": "eslint"
   },
   "dependencies": {
     "@sanity/client": "^7.13.2",

@@ -5,7 +5,7 @@ function Card({_key, name, imageUrl, description, ingredients, prepTime, cookTim
     return (
         <div key={_key} className="card-container">
             <div className='image-container'>
-            <Image src={imageUrl} width={250} height={250}/>
+            <Image src={imageUrl} width={250} alt={"Recipe image from results"} height={250}/>
             <div className='badge-container'>
             {isVegan ? <span id="vegan" className='recipe-badge'>Vegan</span> : null}
             {isGlutenFree ? <span id="gf" className='recipe-badge'>Gluten Free</span> : null}

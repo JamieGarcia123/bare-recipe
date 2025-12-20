@@ -1,8 +1,22 @@
 /** @type {import('next').NextConfig} */
+// next.config.js
+const isProd = process.env.NODE_ENV === "production";
+
 const nextConfig = {
-  output: 'export',   // enable static export
-  basePath: '',       // empty for custom domain
-  assetPrefix: '',    // absolute _next paths
+  basePath: isProd ? "" : "",
+  assetPrefix: isProd ? "/" : "",
+  output: 'export',
+
+  images: {
+    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+        pathname: '/images/**',
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;

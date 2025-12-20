@@ -49,7 +49,7 @@ export default async function SauceDetail({ params}) {
       <Hero title={sauce.title} imageUrl={detailImage}/>
       <section className="section-grid">
         <div className="sectionCol1">
-          <Image className="detail-image" width={800} height={400} src={urlFor(sauce.image)}/>
+          <Image className="detail-image" width={800} height={400} alt="Slate board of herbs in aesthetic" src={urlFor(sauce.image)}/>
           <h2>{sauce.title}</h2>
           <p>{sauce.snippet}</p>
           <PrintButton/>
