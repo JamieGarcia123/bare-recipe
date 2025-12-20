@@ -4,10 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-   "build": "next build && next export",
-  "deploy": "gh-pages -d out",
+    "build": "next build",
+    "deploy": "gh-pages -d out",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+     "build:netlify": "next build && next export"
+
   },
   "dependencies": {
     "@sanity/client": "^7.13.2",
