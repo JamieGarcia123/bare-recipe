@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,15397,t=>{"use strict";var i=t.i(43476);function n(){return(0,i.jsx)("button",{className:"printBtn",onClick:()=>window.print(),children:"Print Recipe"})}t.s(["default",()=>n])}]);
