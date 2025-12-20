@@ -1,0 +1,119 @@
+.card-container {
+    column-count: 1;
+    width: 100%;
+    max-width: 350px;
+    height: 450px;
+    max-height: 450px;
+    display: grid;
+    border: 1px solid gray;
+    border-radius: 12px;
+    grid-template-columns: repeat(1, 2fr);
+    position: relative;
+}
+
+/* Realistic curved/concave shadow */
+/* .card-container::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -35px;
+    transform: translateX(-50%);
+    width: 115%;
+    height: 55px;
+    z-index: -1;
+
+    background: radial-gradient(
+        ellipse at center,
+        rgba(0, 0, 0, 0.35) 100%,
+        rgba(0, 0, 0, 0.28) 70%,
+        rgba(0, 0, 0, 0.18) 40%,
+        rgba(0, 0, 0, 0.05) 20%,
+        rgba(0, 0, 0, 0) 0%
+    );
+
+    filter: blur(18px);
+} */
+
+.card-container img{
+    width: 80%;
+    margin: auto;
+    object-fit: cover;
+    height: 175px;
+    border-radius: 12px;
+}
+.image-container{
+    width: inherit;
+    display: flex;
+    justify-content: center;
+    height: 250px;
+    position: relative;
+}
+.badge-container{
+    position: absolute;
+    width: 100%;
+    max-width: 100px;
+    left: 0px;
+    bottom: 70px;
+    max-height: 200px;
+    display: grid;
+    align-items: center;
+    justify-content: space-around;
+}
+.recipe-badge{
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 5px 0px;
+    width: 100px;
+    text-align: center;
+    margin: 2.5px 0px;
+    border-radius: 0px 4px 4px 0px;
+}
+#vegan.recipe-badge {
+background-color: var(--color-sage);
+}
+#lowC.recipe-badge{
+    background-color: var(--color-terracotta);
+}
+#gf.recipe-badge{
+    background-color: var(--color-turmeric)
+}
+#veg.recipe-badge{
+    background-color: var(--color-charcoal)
+}
+.card-content{
+    width: 90%;
+    padding: 0px 10px;
+    margin: 0px auto;
+    height: 200px;
+    display: grid;
+    align-content: space-around;
+}
+.card-description{
+  display: -webkit-box;
+  -webkit-line-clamp: 2;      /* Limit to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.4em;        /* set a consistent line height */
+  max-height: calc(1.4em * 2); /* 2 lines × line-height */
+}
+
+.ingredient-ul{
+    padding: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    text-transform: capitalize;
+}
+.ingredient-ul li{
+    list-style: none;
+}
+h3#cardName{
+    text-transform: capitalize;
+}
+#viewmore{
+    background-color: var(--color-terracotta);
+    border: none;
+    border-radius: 12px;
+    padding: 10px 8px;
+}

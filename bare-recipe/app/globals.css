@@ -1,0 +1,108 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: grid;
+  background-color: var(--color-linen);
+  color: var(--color-charcoal);
+}
+main{
+  min-height: 580px;
+}
+
+:root {
+  --color-linen: #F8F5F2;
+  --color-charcoal: #2F2F2F;
+  --color-sage: #7c8779;
+  --color-muted-sage: #D9DDD4;
+  --color-terracotta: #C97B63;
+  --color-wheat: #D4C7B0;
+  --color-turmeric: #D9A441;
+  --color-mustard: #7A5F1E;
+  --color-light-turmeric: #F6E3B0;
+  --color-white: #fafafa;
+  --color-overlay: rgba(0, 0, 0, 0.40);
+}
+
+/* font family */
+
+/* styled html tags */
+/* use rem/em for mobile scaling  1em is 16px.*/
+@font-face {
+  font-family: bodyText;
+  font-display: swap;
+  src: local('bodyText'), url('./assets/fonts/IndieFlower-Regular.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: headers;
+    font-display: swap;
+    src: local('headers'), url('./assets/fonts/PermanentMarker-Regular.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: ptags;
+    font-display: swap;
+    src: local('ptags'), url('./assets/fonts/FunnelSans.ttf') format('truetype');
+  }
+
+
+h1, h2 {
+  font-family: headers;
+  letter-spacing: 3.5px;
+    color: var(--color-terracota); 
+    margin: auto;
+
+}
+
+h3, h4, h5{
+  font-family: bodyText;
+  margin: 0px;
+}
+
+h1{
+font-weight: 900;
+font-size: 2.5em;
+}
+
+h2{
+  font-weight: 600;
+  font-size: 2em;
+  color: var(--color-turmeric);
+}
+
+h3, h4, h5{
+  font-size: 1.5em;
+  color: var(--color-sage)
+}
+
+p{
+font-size: 1rem;
+font-family: ptags;
+color: var(--color-charcoal);
+margin: 0px;
+}
+
+a{
+  color: var(--color-charcoal);
+  text-decoration: none;
+  font-family: ptags;
+  font-size: 1rem;
+}
+
+button{
+  text-decoration: none;
+  font-family: ptags;
+  font-size: calc(1rem - 4px);
+  color: #ffffff; 
+    -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 500;
+  text-shadow: none;
+
+}
+input:focus{
+  border-color: var(--color-sage);
+}

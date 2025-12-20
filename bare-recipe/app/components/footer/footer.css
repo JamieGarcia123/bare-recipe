@@ -1,0 +1,22 @@
+.footer-container{
+    height: 350px;
+    width: 100%;
+    background: linear-gradient(to top, 
+      var(--color-sage) 0%,   
+      var(--color-muted-sage) 70%,   
+      var(--color-linen) 100%   )
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: inherit;
+    align-items: end; 
+    text-align: center;
+}
+
+@media print {
+  .footer-container{
+  display: none;
+  }
+}

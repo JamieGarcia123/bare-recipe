@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/search-and-landing/static/css/main.24f995aa.css",
+    "main.js": "/search-and-landing/static/js/main.a416d283.js",
+    "static/js/796.94e2529d.chunk.js": "/search-and-landing/static/js/796.94e2529d.chunk.js",
+    "static/js/165.557a57ba.chunk.js": "/search-and-landing/static/js/165.557a57ba.chunk.js",
+    "static/js/453.a601c44e.chunk.js": "/search-and-landing/static/js/453.a601c44e.chunk.js",
+    "static/media/slate-herbs-bg.webp": "/search-and-landing/static/media/slate-herbs-bg.aedfecc14a5aaa8ff636.webp",
+    "static/media/spices-header-bg.webp": "/search-and-landing/static/media/spices-header-bg.7605d8bb2b2764d5ad47.webp",
+    "static/media/ponderingwhattoeat.webp": "/search-and-landing/static/media/ponderingwhattoeat.abebd755516e71752ba7.webp",
+    "static/media/emptykitchcounter.webp": "/search-and-landing/static/media/emptykitchcounter.b114de9d911643041a23.webp",
+    "static/media/girl-sauteeing.webp": "/search-and-landing/static/media/girl-sauteeing.d3d97d66816c8748222b.webp",
+    "static/media/PermanentMarker-Regular.ttf": "/search-and-landing/static/media/PermanentMarker-Regular.109a10dca0508e41aa12.ttf",
+    "static/media/IndieFlower-Regular.ttf": "/search-and-landing/static/media/IndieFlower-Regular.599d26584b9afc1d20b1.ttf",
+    "static/media/FunnelSans.ttf": "/search-and-landing/static/media/FunnelSans.46289c3935b36a5770c1.ttf",
+    "static/media/recipe-book-svg.svg": "/search-and-landing/static/media/recipe-book-svg.b91d1a434b655803bcbc015018beebb4.svg",
+    "index.html": "/search-and-landing/index.html",
+    "main.24f995aa.css.map": "/search-and-landing/static/css/main.24f995aa.css.map",
+    "main.a416d283.js.map": "/search-and-landing/static/js/main.a416d283.js.map",
+    "796.94e2529d.chunk.js.map": "/search-and-landing/static/js/796.94e2529d.chunk.js.map",
+    "165.557a57ba.chunk.js.map": "/search-and-landing/static/js/165.557a57ba.chunk.js.map",
+    "453.a601c44e.chunk.js.map": "/search-and-landing/static/js/453.a601c44e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.24f995aa.css",
+    "static/js/main.a416d283.js"
+  ]
+}

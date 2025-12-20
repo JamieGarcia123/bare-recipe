@@ -1,0 +1,135 @@
+.section-grid{
+    display: grid;
+    align-content: center;
+    max-width: 800px;
+    width: 100%;
+    margin: auto;
+}
+.sectionCol1{
+    margin: auto;
+    column-count: 1;
+}
+.sectionCol1 p{
+    margin: 20px 0px;
+}
+.timeRow{
+    display: flex;
+    justify-content: space-between;
+    max-width: 775px;
+    width: 100%;
+    margin: 20px auto;
+}
+.ingredientCol{
+    column-count: 1;
+    max-width: 940px;
+}
+.detail-image{
+    margin: auto;
+    z-index: 5;
+    margin-top: -200px;
+}
+img.detail-image{
+ height: 450px;
+ max-width: 800px;
+ width: 100%;
+ border-radius: 80px;
+}
+.sectionCol2{
+    margin: auto;
+    column-count: 2;
+}
+.detail-container{
+    max-width: 1200px;
+    margin: auto;
+}
+
+ol {
+    list-style: none;
+    padding: 0px;
+}
+
+ol li {
+    padding: 10px 0px ;
+}
+
+/* goes well wit section */
+.sauce-section {
+    border-top: 2px dashed var(--color-muted-sage);
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+}
+.sauce-grid{
+   display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;  
+    max-width: 1200px;
+    width: 100%;
+    margin: 20px auto;  
+ 
+}
+
+.sauce-card {
+  text-align: center;
+  background: var(--color-white);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+
+.sauce-card:hover {
+  transform: translateY(-5px);
+}
+
+.sauce-image {
+  width: 100%;
+  max-width: 250px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.sauce-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+@media print {
+  aside {
+  display: none;
+  }
+  .section-grid{
+    padding-top: 200px;
+  }
+
+}
+@media screen and (max-width: 1080px) {
+   .section-grid{
+    width: 80%;
+   }  
+      img.detail-image{
+    height: 325px;
+   }
+}
+@media screen and (max-width: 786px) {
+   .section-grid{
+    width: 80%;
+   }  
+      img.detail-image{
+    height: 275px;
+    }
+    .detail-image{
+      margin-top: -165px;
+    }
+    h1{
+      margin-bottom: 80px;
+    }
+    .sauce-grid{
+    grid-template-columns: repeat(1, 1fr);
+
+ 
+}
+   
+}
