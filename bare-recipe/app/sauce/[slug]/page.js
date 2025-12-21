@@ -28,7 +28,7 @@ export async function generateMetadata({ params }) {
   }`;
 
   const sauce = await client.fetch(query, { slug });
-const imageUrl = sauce.image ? imageUrlFor(sauce.image).url() : '/default-og-image.jpg';
+const imageUrl = sauce.image ? imageUrl(sauce.image).url() : '/default-og-image.jpg';
 
   return {
     title: `${sauce.title} | Bare Recipe`,
