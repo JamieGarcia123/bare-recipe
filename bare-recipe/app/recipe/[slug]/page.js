@@ -55,7 +55,7 @@ export default async function Detail({ params }) {
     <>
      <Head>
       <meta name="keywords" content={`"${recipe.title}, Recipes"`} />       
-      <meta property="og:image" content={recipe.imageUrl} />
+      <meta property="og:image" content={recipe.image} />
       <meta property="title" content={`${recipe.title} | Bare Recipe`}/>
       <meta property="og:description" content={recipe.snippet} />
       <meta name="description" content={recipe.snippet} />
