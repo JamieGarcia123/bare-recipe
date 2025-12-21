@@ -74,7 +74,7 @@ export async function generateStaticParams() {
 
 
 export default async function Detail({ params }) {
-  const {slug}  = await params.slug;
+  const {slug}  = await params;
 
   const query = `*[_type == "recipe" && slug.current == $slug][0]{
     title,

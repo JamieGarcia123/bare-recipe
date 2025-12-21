@@ -74,7 +74,7 @@ export async function generateStaticParams() {
 }
 
 export default async function SauceDetail({ params}) {
-  const  {slug}  = await params.slug;  
+  const {slug}  = await params;  
         const query = `*[_type == "sauce" && slug.current == $slug][0]{
           ...,
           "imageUrl": image.asset->url,
