@@ -17,8 +17,6 @@ export async function generateStaticParams() {
   }));
 }
 
-// app/recipe/[slug]/page.tsx
-import { client } from "@/sanity/client";
 
 export async function generateMetadata({ params }) {
   const { slug } = params;
