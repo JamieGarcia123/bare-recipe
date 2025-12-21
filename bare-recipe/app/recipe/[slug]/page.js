@@ -10,7 +10,7 @@ import heroImage from "../../assets/images/emptykitchcounter.webp";
 
 // 2️⃣ Generate dynamic metadata for each recipe page
 export async function generateMetadata({ params }) {
-  const {slug} =  params;
+  const {slug}  = await params;
 
   if (!slug) {
     return {
