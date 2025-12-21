@@ -101,7 +101,6 @@ button{
   -moz-osx-font-smoothing: grayscale;
   font-weight: 500;
   text-shadow: none;
-
 }
 input:focus{
   border-color: var(--color-sage);

@@ -30,10 +30,12 @@
     margin-top: -200px;
 }
 img.detail-image{
- height: 450px;
- max-width: 800px;
- width: 100%;
- border-radius: 80px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    height: 400px;
+    max-width: 800px;
+    width: 100%;
+    border-radius: 80px;
 }
 .sectionCol2{
     margin: auto;

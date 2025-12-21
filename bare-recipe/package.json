@@ -7,9 +7,7 @@
     "build": "next build",
     "deploy": "gh-pages -d out",
     "start": "next start",
-    "lint": "eslint",
-     "build:netlify": "next build && next export"
-
+    "lint": "eslint"
   },
   "dependencies": {
     "@sanity/client": "^7.13.2",
