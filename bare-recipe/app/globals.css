@@ -16,12 +16,13 @@ main{
 :root {
   --color-linen: #F8F5F2;
   --color-charcoal: #2F2F2F;
-  --color-sage: #7c8779;
+  --color-sage: #64634F;
+  --color-light-sage: #898C66;
   --color-muted-sage: #D9DDD4;
   --color-terracotta: #C97B63;
   --color-wheat: #D4C7B0;
   --color-turmeric: #D9A441;
-  --color-mustard: #7A5F1E;
+  --color-mustard: #D4A55D;
   --color-light-turmeric: #F6E3B0;
   --color-white: #fafafa;
   --color-overlay: rgba(0, 0, 0, 0.40);
