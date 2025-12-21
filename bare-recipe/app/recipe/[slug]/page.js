@@ -9,59 +9,59 @@ import "./detail.css";
 import heroImage from "../../assets/images/emptykitchcounter.webp";
 
 // 2️⃣ Generate dynamic metadata for each recipe page
-// export async function generateMetadata({ params }) {
-//   const {slug} =  params;
+export async function generateMetadata({ params }) {
+  const {slug} =  params;
 
-//   if (!slug) {
-//     return {
-//       title: "Recipe Not Found | Bare Recipe",
-//       description: "No recipe slug provided",
-//       openGraph: {
-//         title: "Recipe Not Found | Bare Recipe",
-//         description: "No recipe slug provided",
-//         images: [{ url: '/default-og-image.jpg', width: 1200, height: 630 }],
-//       },
-//     };
-//   }
+  if (!slug) {
+    return {
+      title: "Recipe Not Found | Bare Recipe",
+      description: "No recipe slug provided",
+      openGraph: {
+        title: "Recipe Not Found | Bare Recipe",
+        description: "No recipe slug provided",
+        images: [{ url: '/default-og-image.jpg', width: 1200, height: 630 }],
+      },
+    };
+  }
 
-//   const query = `*[_type == "recipe" && slug.current == $slug][0]{
-//     title,
-//     snippet,
-//     image
-//   }`;
+  const query = `*[_type == "recipe" && slug.current == $slug][0]{
+    title,
+    snippet,
+    image
+  }`;
 
-//   const recipe = await client.fetch(query, { slug });
+  const recipe = await client.fetch(query, { slug });
 
-//   if (!recipe) {
-//     return {
-//       title: `Recipe Not Found | Bare Recipe`,
-//       description: `Oops! This recipe does not exist.`,
-//       openGraph: {
-//         title: `Recipe Not Found | Bare Recipe`,
-//         description: `Oops! This recipe does not exist.`,
-//         images: [{ url: '/default-og-image.jpg', width: 1200, height: 630 }],
-//       },
-//     };
-//   }
+  if (!recipe) {
+    return {
+      title: `Recipe Not Found | Bare Recipe`,
+      description: `Oops! This recipe does not exist.`,
+      openGraph: {
+        title: `Recipe Not Found | Bare Recipe`,
+        description: `Oops! This recipe does not exist.`,
+        images: [{ url: '/default-og-image.jpg', width: 1200, height: 630 }],
+      },
+    };
+  }
 
-//   const imageUrl = recipe.image ? urlFor(recipe.image) : '/default-og-image.jpg';
+  const imageUrl = recipe.image ? urlFor(recipe.image) : '/default-og-image.jpg';
 
-//   return {
-//     title: `${recipe.title} | Bare Recipe`,
-//     description: recipe.snippet,
-//     openGraph: {
-//       title: `${recipe.title} | Bare Recipe`,
-//       description: recipe.snippet,
-//       images: [
-//         {
-//           url: imageUrl,
-//           width: 1200,
-//           height: 630,
-//         },
-//       ],
-//     },
-//   };
-// }
+  return {
+    title: `${recipe.title} | Bare Recipe`,
+    description: recipe.snippet,
+    openGraph: {
+      title: `${recipe.title} | Bare Recipe`,
+      description: recipe.snippet,
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+  };
+}
 
 export async function generateStaticParams() {
   const query = `*[_type == "recipe"]{ "slug": slug.current }`;
