@@ -19,7 +19,7 @@ export async function generateStaticParams() {
 
 // 2️⃣ Generate dynamic metadata for each recipe page
 export async function generateMetadata({ params }) {
-  const slug = params?.slug;
+  const {slug} = await params?.slug;
 
   if (!slug) {
     return {
