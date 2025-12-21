@@ -8,14 +8,6 @@ import detailImage from '../../assets/images/emptykitchcounter.webp'
 import { decimalToFraction } from '../../assets/helpers/helpers'
 import './saucedetail.css';
 
-export async function generateStaticParams() {
-  const query = `*[_type == "sauce"]{ "slug": slug.current }`;
-  const saucees = await client.fetch(query);
-
-  return saucees.map((sauce) => ({
-    slug: sauce.slug,
-  }));
-}
 
 // 2️⃣ Generate dynamic metadata for each recipe page
 export async function generateMetadata({ params }) {
@@ -72,10 +64,17 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default async function SauceDetail({ params}) {
-  const  slug  = await params.slug;
-
+export async function generateStaticParams() {
+  const query = `*[_type == "sauce"]{ "slug": slug.current }`;
+  const saucees = await client.fetch(query);
   
+  return saucees.map((sauce) => ({
+    slug: sauce.slug,
+  }));
+}
+
+export default async function SauceDetail({ params}) {
+  const  slug  = await params.slug;  
         const query = `*[_type == "sauce" && slug.current == $slug][0]{
           ...,
           "imageUrl": image.asset->url,

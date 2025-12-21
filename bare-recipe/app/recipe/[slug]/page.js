@@ -8,15 +8,6 @@ import { decimalToFraction } from '../../assets/helpers/helpers';
 import "./detail.css"; 
 import heroImage from "../../assets/images/emptykitchcounter.webp";
 
-export async function generateStaticParams() {
-  const query = `*[_type == "recipe"]{ "slug": slug.current }`;
-  const recipes = await client.fetch(query);
-
-  return recipes.map((recipe) => ({
-    slug: recipe.slug,
-  }));
-}
-
 // 2️⃣ Generate dynamic metadata for each recipe page
 export async function generateMetadata({ params }) {
   const {slug} =  params;
@@ -71,6 +62,17 @@ export async function generateMetadata({ params }) {
     },
   };
 }
+
+export async function generateStaticParams() {
+  const query = `*[_type == "recipe"]{ "slug": slug.current }`;
+  const recipes = await client.fetch(query);
+
+  return recipes.map((recipe) => ({
+    slug: recipe.slug,
+  }));
+}
+
+
 export default async function Detail({ params }) {
   const slug  = await params.slug;
 
