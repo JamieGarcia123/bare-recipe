@@ -27,7 +27,7 @@ export async function generateMetadata({ params }) {
   }`;
 
   const recipe = await client.fetch(query, { slug });
-  const imageUrl = recipe?.image?.asset?.url || '/default-og-image.jpg';
+const imageUrl = recipe.image ? imageUrlFor(recipe.image).url() : '/default-og-image.jpg';
 
   return {
     title: `${recipe.title} | Bare Recipe`,
