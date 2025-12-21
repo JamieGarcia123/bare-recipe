@@ -53,7 +53,7 @@ export async function generateMetadata({ params }) {
     };
   }
 
-  const imageUrl = sauce.image ? urlFor(sauce.image).url() : '/default-og-image.jpg';
+  const imageUrl = sauce.image ? urlFor(sauce.image) : '/default-og-image.jpg';
 
   return {
     title: `${sauce.title} | Bare Recipe`,
