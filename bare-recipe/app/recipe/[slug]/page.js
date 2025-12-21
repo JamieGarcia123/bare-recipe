@@ -11,14 +11,27 @@ import heroImage from "../../assets/images/emptykitchcounter.webp";
 export async function generateStaticParams() {
   const query = `*[_type == "recipe"]{ "slug": slug.current }`;
   const recipes = await client.fetch(query);
+
   return recipes.map((recipe) => ({
     slug: recipe.slug,
   }));
 }
 
-
+// 2️⃣ Generate dynamic metadata for each recipe page
 export async function generateMetadata({ params }) {
-  const { slug } = params;
+  const slug = params?.slug;
+
+  if (!slug) {
+    return {
+      title: "Recipe Not Found | Bare Recipe",
+      description: "No recipe slug provided",
+      openGraph: {
+        title: "Recipe Not Found | Bare Recipe",
+        description: "No recipe slug provided",
+        images: [{ url: '/default-og-image.jpg', width: 1200, height: 630 }],
+      },
+    };
+  }
 
   const query = `*[_type == "recipe" && slug.current == $slug][0]{
     title,
@@ -27,7 +40,20 @@ export async function generateMetadata({ params }) {
   }`;
 
   const recipe = await client.fetch(query, { slug });
-const imageUrl = recipe.image ? imageUrl(recipe.image).url() : '/default-og-image.jpg';
+
+  if (!recipe) {
+    return {
+      title: `Recipe Not Found | Bare Recipe`,
+      description: `Oops! This recipe does not exist.`,
+      openGraph: {
+        title: `Recipe Not Found | Bare Recipe`,
+        description: `Oops! This recipe does not exist.`,
+        images: [{ url: '/default-og-image.jpg', width: 1200, height: 630 }],
+      },
+    };
+  }
+
+  const imageUrl = recipe.image ? imageUrlFor(recipe.image).url() : '/default-og-image.jpg';
 
   return {
     title: `${recipe.title} | Bare Recipe`,
@@ -45,9 +71,8 @@ const imageUrl = recipe.image ? imageUrl(recipe.image).url() : '/default-og-imag
     },
   };
 }
-
 export default async function Detail({ params }) {
-  const { slug } = await params;
+  const slug  = await params.slug;
 
   const query = `*[_type == "recipe" && slug.current == $slug][0]{
     title,
