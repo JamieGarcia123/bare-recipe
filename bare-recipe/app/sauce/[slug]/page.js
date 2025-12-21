@@ -9,65 +9,65 @@ import { decimalToFraction } from '../../assets/helpers/helpers'
 import './saucedetail.css';
 
 
-// 2️⃣ Generate dynamic metadata for each recipe page
-export async function generateMetadata({ params }) {
-  const {slug} =  params;
+// // 2️⃣ Generate dynamic metadata for each recipe page
+// export async function generateMetadata({ params }) {
+//   const {slug} =  params;
 
-  if (!slug) {
-    return {
-      title: "Sauce Not Found | Bare Recipe",
-      description: "No sauce slug provided",
-      openGraph: {
-        title: "Sauce Not Found | Bare Recipe",
-        description: "No Sauce slug provided",
-        images: [{ url: '/default-og-image.jpg', width: 1200, height: 630 }],
-      },
-    };
-  }
+//   if (!slug) {
+//     return {
+//       title: "Sauce Not Found | Bare Recipe",
+//       description: "No sauce slug provided",
+//       openGraph: {
+//         title: "Sauce Not Found | Bare Recipe",
+//         description: "No Sauce slug provided",
+//         images: [{ url: '/default-og-image.jpg', width: 1200, height: 630 }],
+//       },
+//     };
+//   }
 
-  const query = `*[_type == "sauce" && slug.current == $slug][0]{
-    title,
-    snippet,
-    image
-  }`;
+//   const query = `*[_type == "sauce" && slug.current == $slug][0]{
+//     title,
+//     snippet,
+//     image
+//   }`;
 
-  const sauce = await client.fetch(query, { slug });
+//   const sauce = await client.fetch(query, { slug });
 
-  if (!sauce) {
-    return {
-      title: `Sauce Not Found | Bare Recipe`,
-      description: `Oops! This sauce does not exist.`,
-      openGraph: {
-        title: `Sauce Not Found | Bare Recipe`,
-        description: `Oops! This sauce does not exist.`,
-        images: [{ url: '/default-og-image.jpg', width: 1200, height: 630 }],
-      },
-    };
-  }
+//   if (!sauce) {
+//     return {
+//       title: `Sauce Not Found | Bare Recipe`,
+//       description: `Oops! This sauce does not exist.`,
+//       openGraph: {
+//         title: `Sauce Not Found | Bare Recipe`,
+//         description: `Oops! This sauce does not exist.`,
+//         images: [{ url: '/default-og-image.jpg', width: 1200, height: 630 }],
+//       },
+//     };
+//   }
 
-  const imageUrl = sauce.image ? urlFor(sauce.image) : '/default-og-image.jpg';
+//   const imageUrl = sauce.image ? urlFor(sauce.image) : '/default-og-image.jpg';
 
-  return {
-    title: `${sauce.title} | Bare Recipe`,
-    description: sauce.snippet,
-    openGraph: {
-      title: `${sauce.title} | Bare Recipe`,
-      description: sauce.snippet,
-      images: [
-        {
-          url: imageUrl,
-          width: 1200,
-          height: 630,
-        },
-      ],
-    },
-  };
-}
+//   return {
+//     title: `${sauce.title} | Bare Recipe`,
+//     description: sauce.snippet,
+//     openGraph: {
+//       title: `${sauce.title} | Bare Recipe`,
+//       description: sauce.snippet,
+//       images: [
+//         {
+//           url: imageUrl,
+//           width: 1200,
+//           height: 630,
+//         },
+//       ],
+//     },
+//   };
+// }
 
 export async function generateStaticParams() {
   const query = `*[_type == "sauce"]{ "slug": slug.current }`;
   const saucees = await client.fetch(query);
-  
+
   return saucees.map((sauce) => ({
     slug: sauce.slug,
   }));
