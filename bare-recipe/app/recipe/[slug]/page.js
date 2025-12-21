@@ -16,6 +16,36 @@ export async function generateStaticParams() {
   }));
 }
 
+
+export async function generateMetadata({ params }) {
+  const { slug } = params;
+
+  const query = `*[_type == "recipe" && slug.current == $slug][0]{
+    title,
+    snippet,
+    image
+  }`;
+
+  const recipe = await client.fetch(query, { slug });
+  const imageUrl = recipe?.image?.asset?.url || '/default-og-image.jpg';
+
+  return {
+    title: `${recipe.title} | Bare Recipe`,
+    description: recipe.snippet,
+    openGraph: {
+      title: `${recipe.title} | Bare Recipe`,
+      description: recipe.snippet,
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+  };
+}
+
 export default async function Detail({ params }) {
   const { slug } = await params;
 
@@ -53,13 +83,6 @@ export default async function Detail({ params }) {
 
   return (
     <>
-     <Head>
-      <meta name="keywords" content={`"${recipe.title}, Recipes"`} />       
-      <meta property="og:image" content={urlFor(recipe.image)} />
-      <meta property="title" content={`${recipe.title} | Bare Recipe`}/>
-      <meta property="og:description" content={recipe.snippet} />
-      <meta name="description" content={recipe.snippet} />
-    </Head>
       <Hero
         title={recipe.title}
         imageUrl={heroImage}

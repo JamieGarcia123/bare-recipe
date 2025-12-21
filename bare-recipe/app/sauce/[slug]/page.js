@@ -17,6 +17,39 @@ export async function generateStaticParams() {
   }));
 }
 
+// app/recipe/[slug]/page.tsx
+import { client } from "@/sanity/client";
+
+export async function generateMetadata({ params }) {
+  const { slug } = params;
+
+  const query = `*[_type == "sauce" && slug.current == $slug][0]{
+    title,
+    snippet,
+    image
+  }`;
+
+  const sauce = await client.fetch(query, { slug });
+  const imageUrl = sauce?.image?.asset?.url || '/default-og-image.jpg';
+
+  return {
+    title: `${sauce.title} | Bare Recipe`,
+    description: sauce.snippet,
+    openGraph: {
+      title: `${sauce.title} | Bare Recipe`,
+      description: sauce.snippet,
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+  };
+}
+
+
 export default async function SauceDetail({ params}) {
   const { slug } = await params;
 
@@ -39,13 +72,7 @@ export default async function SauceDetail({ params}) {
 
   return (
     <>
-      <Head>
-        <meta name="keywords" content={`"${sauce.title}, Recipes"`} />       
-        <meta property="og:image" content={urlFor(sauce.image)} />
-        <meta property="title" content={`${sauce.title} | Bare Recipe`}/>
-        <meta property="og:description" content={sauce.snippet} />
-        <meta name="description" content={sauce.snippet} />
-     </Head>
+
       <Hero title={sauce.title} imageUrl={detailImage}/>
       <section className="section-grid">
         <div className="sectionCol1">
