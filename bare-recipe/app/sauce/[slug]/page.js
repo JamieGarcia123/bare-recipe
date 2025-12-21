@@ -41,7 +41,7 @@ export default async function SauceDetail({ params}) {
     <>
       <Head>
         <meta name="keywords" content={`"${sauce.title}, Recipes"`} />       
-        <meta property="og:image" content={sauce.image} />
+        <meta property="og:image" content={urlFor(sauce.image)} />
         <meta property="title" content={`${sauce.title} | Bare Recipe`}/>
         <meta property="og:description" content={sauce.snippet} />
         <meta name="description" content={sauce.snippet} />
