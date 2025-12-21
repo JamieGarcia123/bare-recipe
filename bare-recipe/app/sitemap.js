@@ -1,4 +1,8 @@
-import { client } from "@/sanity/client";
+export const dynamic = "force-static";
+export const revalidate = 3600;
+
+
+import { client } from "./sanity/client";
 
 export default async function sitemap() {
   // Fetch recipes
