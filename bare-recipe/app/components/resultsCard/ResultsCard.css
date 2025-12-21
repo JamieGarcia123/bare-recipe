@@ -7,7 +7,7 @@
     display: grid;
     border: 1px solid gray;
     border-radius: 12px;
-    grid-template-columns: repeat(1, 2fr);
+    grid-template-columns: repeat(1, 1fr);
     position: relative;
 }
 
@@ -116,4 +116,11 @@ h3#cardName{
     border: none;
     border-radius: 12px;
     padding: 10px 8px;
+}
+
+@media screen and (max-width: 1080px) {
+    .card-container{
+        width: 350px;
+    }
+    
 }

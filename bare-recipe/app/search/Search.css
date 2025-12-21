@@ -146,7 +146,7 @@ button{
     .cat-filter{
         display: grid;
         row-gap: 20px;
-        grid-template-columns: repeat(2, 3fr); /* 3 equal-width columns */
+        grid-template-columns: repeat(3, 2fr); /* 3 equal-width columns */
         margin-bottom: 20px;
     }
 }
