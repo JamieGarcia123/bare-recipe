@@ -32,7 +32,7 @@ function Home() {
     <Head>
       <meta name="keywords" content="Simple Recipes, leftovers, cook easy meals, what to cook with what i have" />       
       <meta property="og:image" content={ogImageUrl} />
-      <meta property="title" content="No ads, no stories. Bare Recipe so you can cook and enjoy!"/>
+      <meta property="title" content="Bare Recipe | No ads, no frills. Just the bare recipe!"/>
       <meta property="og:description" content={"Can't figure out what to make with what you have??? Let's help you out! Enter what you have and see what we come up with."} />
       <meta name="description" content="Can't figure out what to make with what you have??? Let's help you out! Enter what you have and see what we come up with." />
     </Head>
