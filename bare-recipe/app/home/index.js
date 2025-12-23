@@ -37,7 +37,7 @@ function Home() {
       <meta name="description" content="Can't figure out what to make with what you have??? Let's help you out! Enter what you have and see what we come up with." />
     </Head>
     <div className="mainbody">
-        <Hero title={"Hungry???"} imageUrl={spices} subText={"No ads, no pointless back stories of auntie Sue at thanksgiving. Just. Simple. Recipes. "} />
+        <Hero title={"Bare Recipe"} imageUrl={spices} subText={"No ads, no pointless back stories of auntie Sue at thanksgiving. Just. the bare recipe. "} />
         <ImageTextSection
           col1Class="firstsectioncard"
           col2Class="secondsectioncard"
