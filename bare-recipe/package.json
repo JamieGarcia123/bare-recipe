@@ -11,10 +11,14 @@
   },
   "dependencies": {
     "@sanity/client": "^7.13.2",
+    "@sanity/desk-tool": "^2.36.2",
     "@sanity/image-url": "^2.0.2",
+    "@sanity/vision": "^5.1.0",
     "next": "16.0.10",
     "react": "^19.2.1",
-    "react-dom": "^19.2.1"
+    "react-dom": "^19.2.1",
+    "sanity": "^5.1.0",
+    "styled-components": "^6.1.19"
   },
   "devDependencies": {
     "@types/node": "25.0.3",
