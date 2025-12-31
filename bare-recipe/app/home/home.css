@@ -19,7 +19,7 @@
     column-count: 1;
     max-width: 400px;
     width: 100%;
-    background-color: #D9DDD4;
+    background-color: var(--color-eucalyptus);
     text-align: center;
     padding: 20px;
     position: relative;
@@ -36,7 +36,7 @@
     max-width: 500px;
     height: 225px;
     width: 100%;
-    background-color: #9CA89A;
+    background-color: var(--color-olive);
     text-align: center;
     padding: 20px;
     position: relative;
@@ -46,11 +46,12 @@
     border-radius: 12px;
 }
 .midSection{
-     display: grid;
+    display: grid;
     max-width: 1200px;
     width: 100%;
-    margin: auto;
-    padding: 40px 0px;
+    margin: 40px auto 0px; 
+    padding: 40px 20px;
+    border-radius: 12px;
     justify-items: center;
     background-color: var(--color-clay);
 }
@@ -87,23 +88,24 @@
     box-shadow: 10px 10px 10px var(--color-wheat);
 }
 .midButton{
-    max-width: 225px;
+    max-width: 200px;
     width: 100%;
     border-radius: 6px;
     font-family: ptags;
     text-transform: uppercase;
     height: 40px;
-    background-color: var(--color-terracotta);
+    background-color: var(--color-clay);
     color: var(--color-linen);
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    left: -60px;
-    bottom: 75px;
+    left: -40px;
+    bottom: 50px;
     font-size: calc(1rem - 4px) ;
+    letter-spacing: .8px;
 }
-h1{
+.mainbody h1{
     color: var(--color-linen);
 }
 .goToSearch{
@@ -155,7 +157,7 @@ h1{
     position: absolute;
     top: 100px;
     z-index: 1000;
-    object-fit: contain;
+    object-fit: cover;
     left: 200px;
 }
 

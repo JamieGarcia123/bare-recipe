@@ -101,7 +101,7 @@ export default async function SauceDetail({ params}) {
   return (
     <>
 
-      <Hero title={sauce.title} imageUrl={detailImage}/>
+      <Hero title={sauce.title} imageUrl={detailImage} showTitle={false}/>
       <section className="section-grid">
         <div className="sectionCol1">
           <Image 
