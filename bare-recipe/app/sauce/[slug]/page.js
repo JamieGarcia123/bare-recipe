@@ -58,8 +58,15 @@ export async function generateMetadata({ params }) {
           url: imageUrl,
           width: 1200,
           height: 630,
-        },
+        }
       ],
+    },
+    alternates: {
+      canonical: `https://bare-recipe.com/recipe/${params.slug}/`,
+    },
+    robots: {
+      index: true,
+      follow: true,
     },
   };
 }

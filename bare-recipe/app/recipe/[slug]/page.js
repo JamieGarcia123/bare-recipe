@@ -19,7 +19,19 @@ export async function generateMetadata({ params }) {
       openGraph: {
         title: "Recipe Not Found | Bare Recipe",
         description: "No recipe slug provided",
-        images: [{ url: '/default-og-image.jpg', width: 1200, height: 630 }],
+        images: [
+          { url: '/default-og-image.jpg', 
+            width: 1200, 
+            height: 630 
+          }
+        ],
+      },
+      alternates: {
+        canonical: `https://bare-recipe.com/recipe/${params.slug}/`,
+      },
+      robots: {
+        index: true,
+        follow: true,
       },
     };
   }
