@@ -71,7 +71,6 @@ function Search() {
 
   // Apply category filter
   const applyCategoryFilter = (items) => {
-    if (showSauces) return clearCat();
     if (!activeCat) return items;
     return items.filter((item) => item.categories?.includes(activeCat));
   };
