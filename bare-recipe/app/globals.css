@@ -26,6 +26,13 @@ main{
   --color-light-turmeric: #F6E3B0;
   --color-white: #fafafa;
   --color-overlay: rgba(0, 0, 0, 0.40);
+  --color-olive: #7A7C5A;           /* stronger sage for accents */
+  --color-moss: #A5A88A;            /* gentle highlight */
+  --color-eucalyptus: #C9D1C4;      /* very soft background green */
+  --color-clay: #B96A55;            /* deeper terracotta */
+  --color-honey: #E1B75A;           /* softer than turmeric */
+  --color-apricot: #F1C1A3;         /* subtle highlight or badge */
+
 }
 
 /* font family */

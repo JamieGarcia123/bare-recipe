@@ -45,17 +45,33 @@
     top: 35px;
     border-radius: 12px;
 }
-.midGrid{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
-    column-gap: 4em;
+.midSection{
+     display: grid;
     max-width: 1200px;
     width: 100%;
     margin: auto;
-    padding: 0px 0px;
+    padding: 40px 0px;
+    justify-items: center;
+    background-color: var(--color-clay);
+}
+.midGrid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+    grid-template-rows: auto 1fr;
+    column-gap: 4em;
+    max-width: 1200px;
+    width: 100%;
+    margin: 20px auto;
+    padding: 40px 0px;
     height: 375px;
     justify-items: center;
 }
+.gridTitle {
+  grid-column: 1 / -1; /* span all columns */
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
 .midCol{
     max-width: 400px;
     width: 100%;
