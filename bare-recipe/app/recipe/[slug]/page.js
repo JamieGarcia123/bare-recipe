@@ -27,7 +27,7 @@ export async function generateMetadata({ params }) {
         ],
       },
       alternates: {
-        canonical: `https://bare-recipe.com/recipe/${params.slug}/`,
+        canonical: `https://bare-recipe.com/recipe/${slug}/`,
       },
       robots: {
         index: true,
