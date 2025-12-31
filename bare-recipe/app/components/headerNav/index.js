@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import logo from '../../assets/images/bare-recipe-logo.png'
+import logo from '../../assets/images/bare-recipe-logo.svg'
 import './HeaderNav.css'
 
 function HeaderNav() {

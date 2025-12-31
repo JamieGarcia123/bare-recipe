@@ -59,7 +59,7 @@ export async function generateMetadata({ params }) {
   const imageUrl = recipe.image ? urlFor(recipe.image) : '/default-og-image.jpg';
 
   return {
-    title: `${recipe.title} | Bare Recipe`,
+    title: `${recipe.title} Recipe | Bare Recipe`,
     description: recipe.snippet,
     openGraph: {
       title: `${recipe.title} | Bare Recipe`,
@@ -71,7 +71,14 @@ export async function generateMetadata({ params }) {
           height: 630,
         },
       ],
-    },
+    },  
+    alternates: {
+        canonical: `https://bare-recipe.com/recipe/${slug}/`,
+      },
+      robots: {
+        index: true,
+        follow: true,
+      },
   };
 }
 
@@ -125,6 +132,7 @@ export default async function Detail({ params }) {
       <Hero
         title={recipe.title}
         imageUrl={heroImage}
+        showTitle={false}
       />
 
       <section className="section-grid">
@@ -138,9 +146,9 @@ export default async function Detail({ params }) {
               alt={recipe.title}
             />
           )}
-
-          <h2>{recipe.title}</h2>
-          <p>{recipe.snippet}</p>
+          
+          <h1>{recipe.title}</h1>
+          <h2>{recipe.snippet}</h2>
           <PrintButton/>
         </div>
 

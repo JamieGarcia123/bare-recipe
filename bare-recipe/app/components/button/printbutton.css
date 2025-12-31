@@ -1,0 +1,11 @@
+.printBtn{
+    height: 40px;
+    width: 150px;
+    border-radius: 12px;
+    background-color: var(--color-terracotta);
+    border: none;
+    -webkit-backface-visibility: none;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    cursor: pointer;
+}

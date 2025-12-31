@@ -110,8 +110,8 @@ export default async function SauceDetail({ params}) {
           height={400} 
           alt={sauce.title} 
           src={urlFor(sauce.image)}/>
-          <h2>{sauce.title}</h2>
-          <p>{sauce.snippet}</p>
+          <h1>{sauce.title}</h1>
+          <h2>{sauce.snippet}</h2>
           <PrintButton/>
         </div>
         <div className="timeRow">
