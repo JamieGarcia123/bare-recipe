@@ -9,15 +9,18 @@
     "start": "next start",
     "lint": "eslint"
   },
+    "engines": {
+    "node": "18.x"
+  },
   "dependencies": {
-  "@sanity/image-url": "^2.0.2",
-  "next": "16.0.10",
-  "react": "^18.2.0",
-  "react-dom": "^18.2.0",
-  "sanity": "^3.40.0",
+    "@sanity/image-url": "^2.0.2",
+    "@sanity/vision": "^3.99.0",
+    "next": "16.0.10",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sanity": "^3.40.0",
     "styled-components": "^6.1.19"
   },
-
   "devDependencies": {
     "@types/node": "25.0.3",
     "@types/react": "^19.2.7",

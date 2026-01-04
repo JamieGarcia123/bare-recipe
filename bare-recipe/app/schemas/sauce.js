@@ -38,9 +38,34 @@ export default {
       name: 'image',
       title: 'Image',
       type: 'image',
+      validation: Rule => Rule.required(),
       options: {
         hotspot: true,
       },
+    },
+    {
+      name: 'gallery',
+      title: 'Additional Images',
+      type: 'array',
+      validation: Rule => Rule.max(8),
+      of: [
+        {
+          type: 'image',
+          options: { hotspot: true },
+        fields: [
+          {
+            name: 'alt',
+            title: 'Alt text',
+            type: 'string'
+          },
+          {
+            name: 'caption',
+            title: 'Caption',
+            type: 'string'
+          }
+        ]
+        }
+      ]
     },
     {
       name: 'prepTime',
