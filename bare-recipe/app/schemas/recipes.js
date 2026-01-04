@@ -42,6 +42,13 @@ export default {
       options: {
         hotspot: true,
       },
+      fields: [
+          {
+            name: 'alt',
+            title: 'Alt text',
+            type: 'string'
+          },
+        ]
     },
     {
       name: 'gallery',

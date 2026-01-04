@@ -5,7 +5,7 @@ export async function fetchRecipes() {
  _id,
   title,
   "slug": slug.current,
-  "image": image.asset->url,
+  image,
   ingredients[]{name, amount, measurement},
   categories,
   snippet,
@@ -15,6 +15,12 @@ export async function fetchRecipes() {
   isLowCarb,
   prepTime,
   cookTime,
+  gallery[]{
+  _key,
+  alt,
+  caption,
+  asset
+},
   "goesWellWith": goesWellWith[]->{
     _id,
     title,

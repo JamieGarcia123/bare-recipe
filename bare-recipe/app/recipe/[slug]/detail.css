@@ -31,19 +31,8 @@ h2{
     column-count: 1;
     max-width: 940px;
 }
-.detail-image{
-    margin: auto;
-    z-index: 5;
-    margin-top: -250px;
-}
-img.detail-image{
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  height: 400px;
-  max-width: 800px;
-  width: 100%;
-  border-radius: 35px;
-}
+
+
 .sectionCol2{
     margin: auto;
     column-count: 2;

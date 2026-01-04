@@ -7,11 +7,10 @@ import PrintButton from '../../components/button/printbutton.js';
 import { decimalToFraction } from '../../assets/helpers/helpers';
 import "./detail.css"; 
 import heroImage from "../../assets/images/emptykitchcounter.webp";
+import GalleryCarousel from '../../components/gallery/index.js';
 
-// 2️⃣ Generate dynamic metadata for each recipe page
 export async function generateMetadata({ params }) {
   const {slug}  = await params;
-
   if (!slug) {
     return {
       title: "Recipe Not Found | Bare Recipe",
@@ -35,7 +34,6 @@ export async function generateMetadata({ params }) {
       },
     };
   }
-
   const query = `*[_type == "recipe" && slug.current == $slug][0]{
     title,
     snippet,
@@ -43,7 +41,6 @@ export async function generateMetadata({ params }) {
   }`;
 
   const recipe = await client.fetch(query, { slug });
-
   if (!recipe) {
     return {
       title: `Recipe Not Found | Bare Recipe`,
@@ -62,7 +59,7 @@ export async function generateMetadata({ params }) {
     title: `${recipe.title} Recipe | Bare Recipe`,
     description: recipe.snippet,
     openGraph: {
-      title: `${recipe.title} | Bare Recipe`,
+      title: `${recipe.title} Recipe | Bare Recipe`,
       description: recipe.snippet,
       images: [
         {
@@ -91,7 +88,6 @@ export async function generateStaticParams() {
   }));
 }
 
-
 export default async function Detail({ params }) {
   const {slug}  = await params;
 
@@ -107,6 +103,11 @@ export default async function Detail({ params }) {
       amount,
       measurement
     },
+    gallery[]{
+      _key,
+      alt,
+      asset
+    },
     instructions,
     goesWellWith[]->{
       title,
@@ -117,7 +118,6 @@ export default async function Detail({ params }) {
   }`;
 
   const recipe = await client.fetch(query, { slug });
-
   if (!recipe) {
     return (
       <p style={{ padding: '2rem', textAlign: 'center' }}>
@@ -126,7 +126,6 @@ export default async function Detail({ params }) {
     );
   }
 
-
   return (
     <>
       <Hero
@@ -134,18 +133,11 @@ export default async function Detail({ params }) {
         imageUrl={heroImage}
         showTitle={false}
       />
-
       <section className="section-grid">
         <div className="sectionCol1">
-          {recipe.image && (
-            <Image
-              width={800}
-              height={400}
-              className="detail-image"
-              src={urlFor(recipe.image)}
-              alt={recipe.title}
-            />
-          )}
+      
+            <GalleryCarousel  featuredImage={recipe.image}
+            images={recipe.gallery} />
           
           <h1>{recipe.title}</h1>
           <h2>{recipe.snippet}</h2>
@@ -195,7 +187,6 @@ export default async function Detail({ params }) {
       {recipe.goesWellWith?.length > 0 && (
         <aside className="sauce-section">
           <h3>Try This With</h3>
-
           <div className="sauce-grid">
             {recipe.goesWellWith.map((sauce) => (
               <div key={sauce._id} className="sauce-card">
