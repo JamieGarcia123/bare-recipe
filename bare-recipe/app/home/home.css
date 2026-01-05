@@ -170,7 +170,7 @@
     .firstsectioncard{
         position: unset;
         height: auto;  
-        padding: 65px;   
+        padding: 50px;   
     }
     .secondsectioncard{
         position: unset;
@@ -191,11 +191,12 @@
         left: 80px;
     }
     .goToSearch{
+        width: 80%;
     }
     .reversefirstsectioncard{     
         position: unset;
         height: auto;
-        padding: 70px;
+        padding: 55px;
         max-width: 300px;
         width: 80%;
         order: 1;
@@ -213,5 +214,10 @@
     .midCol{
         height: 275px;
     }
-    
+    .firstsectioncard{
+        width: 80%;
+    }
+    .midSection{
+        width: 80%;
+    }
 }
