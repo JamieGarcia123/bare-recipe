@@ -31,3 +31,21 @@ img.detail-image{
     display: grid;
 
 }
+
+@media screen and (max-width: 1080px) {
+  img.detail-image{
+    height: 325px;
+   }
+}
+@media screen and (max-width: 786px) {
+
+    img.detail-image{
+    height: 275px;
+    }
+    .detail-image{
+      margin-top: -225px;
+    } 
+    .gallery-wrapper {
+        margin-top: 25px; 
+    }
+}
