@@ -48,4 +48,13 @@ img.detail-image{
     .gallery-wrapper {
         margin-top: 25px; 
     }
+    .thumbnail{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    }
+    .carousel-item {
+        padding: 0 5px; /* gap between thumbnails */
+        width: 100px !important; 
+    }
 }
