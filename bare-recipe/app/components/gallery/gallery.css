@@ -1,5 +1,7 @@
 
-
+.react-multi-carousel-list{
+   position: initial; 
+}
 .thumbnail{
     width: 150px;
     height: 150px;
@@ -31,6 +33,33 @@ img.detail-image{
     display: grid;
 
 }
+.gallery-wrapper {
+  position: relative;
+}
+
+.custom-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--color-clay);
+  color: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* push arrows into the white space */
+.custom-arrow.left {
+  left: -30px;
+}
+
+.custom-arrow.right {
+  right: -40px;
+}
+
 
 @media screen and (max-width: 1080px) {
   img.detail-image{
@@ -46,15 +75,20 @@ img.detail-image{
       margin-top: -225px;
     } 
     .gallery-wrapper {
-        margin-top: 25px; 
+        margin: 25px auto; 
+        width: 215px;
+        z-index: 1000;
     }
     .thumbnail{
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        text-align: center;
     }
     .carousel-item {
-        padding: 0 5px; /* gap between thumbnails */
-        width: 100px !important; 
+        padding: 0 10px;
+        width: auto !important;
+     
     }
+   
 }

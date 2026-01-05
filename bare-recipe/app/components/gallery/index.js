@@ -35,6 +35,17 @@ export default function GalleryCarousel({ featuredImage, images }) {
   const [activeImage, setActiveImage] = useState(
   featuredImage || images[0]
 )
+const CustomLeftArrow = ({ onClick }) => (
+  <button className="custom-arrow left" onClick={onClick} aria-label="Previous">
+    ‹
+  </button>
+)
+
+const CustomRightArrow = ({ onClick }) => (
+  <button className="custom-arrow right" onClick={onClick} aria-label="Next">
+    ›
+  </button>
+)
   // Filter out invalid images upfront
 const validImages = Array.isArray(images)
   ? images.filter(img => img && img.asset)
@@ -48,7 +59,7 @@ const responsive = {
     items: Math.min(3, imageCount),
   },
   tablet: {
-    breakpoint: { max: 1024, min: 768 },
+    breakpoint: { max: 1024, min: 769 },
     items: Math.min(2, imageCount),
   },
   mobile: {
@@ -71,6 +82,9 @@ const responsive = {
       <div className="gallery-wrapper"  ref={galleryRef}>
         <Carousel
           responsive={responsive}
+          customLeftArrow={<CustomLeftArrow />}
+          customRightArrow={<CustomRightArrow />}
+          arrows
           keyBoardControl
           showDots
           containerClass="carousel-container"
