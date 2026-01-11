@@ -6,80 +6,58 @@ import Card from '../../components/resultsCard';
 import heroUrl from '../../assets/images/blank-recipe.webp';
 import './Search.css';
   
-
 export async function generateMetadata({ params }) {
-  const {slug}  = await params;
-  if (!slug) {
-    return {
-      title: "Recipe Not Found | Bare Recipe",
-      description: "No recipe slug provided",
-      openGraph: {
-        title: "Recipe Not Found | Bare Recipe",
-        description: "No recipe slug provided",
-        images: [
-          { url: '/default-og-image.jpg', 
-            width: 1200, 
-            height: 630 
-          }
-        ],
-      },
-      // alternates: {
-      //   canonical: `https://bare-recipe.com/category/${slug}/`,
-      // },
-      robots: {
-        index: true,
-        follow: true,
-      },
-    };
-  }
-  const query = `*[_type == "category" && slug.current == $slug][0]{
-   
-  }`;
+  const slug = await params;
+  const categoryMap = {
+    "beginner-cook": "beginner-cook",
+    "sweet-treat": "sweet-treat",
+  };
 
-  const recipe = await client.fetch(query, { slug });
-  if (!recipe) {
+  const category = categoryMap[slug];
+  if (!category) {
     return {
-      title: `Category Not Found | Bare Recipe`,
-      description: `Oops! This category does not exist.`,
+      title: "Category Not Found | Bare Recipe",
+      description: "The requested category doesn't exist.",
       openGraph: {
-        title: `Category Not Found | Bare Recipe`,
-        description: `Oops! This recipe does not exist.`,
-        images: [{ url: '/default-og-image.jpg', width: 1200, height: 630 }],
+        title: "Category Not Found | Bare Recipe",
+        description: "This category doesn't exist.",
+        images: [{ url: "/default-og-image.jpg", width: 1200, height: 630 }],
       },
     };
   }
 
-  // const imageUrl = recipe.image ? urlFor(recipe.image) : '/default-og-image.jpg';
+  // Use the SAME filter as your actual category page
+  const query = `*[
+    _type == "recipe" &&
+    $category in categories
+  ][0]`;
 
+  const recipe = await client.fetch(query, { category });
+
+  // Even if no recipes exist, we still show the category metadata
   return {
-    title: `Category | Bare Recipe`,
-    description: "Find exceiting recipes for this categor!y",
+    title: `${category} | Bare Recipe`,
+    description: `Explore exciting recipes in the ${category} category!`,
     openGraph: {
-      title: `Category Recipes | Bare Recipe`,
-      description: "Find",
-      // images: [
-      //   {
-      //     url: imageUrl,
-      //     width: 1200,
-      //     height: 630,
-      //   },
-      // ],
-    },  
+      title: `${category} | Bare Recipe`,
+      description: `Discover delicious ${category} recipes on Bare Recipe.`,
+    },
     alternates: {
-        canonical: `https://bare-recipe.com/category/${slug}/`,
-      },
-      robots: {
-        index: true,
-        follow: true,
-      },
+      canonical: `https://bare-recipe.com/category/${slug}/`,
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
   };
 }
+
+
 
 export async function generateStaticParams() {
   const categories = await client.fetch(`
   array::unique(*[_type == "recipe"].categories[])
 `);
-
 
   return categories
     .filter(c => typeof c === "string" && c.length > 0)
@@ -95,7 +73,6 @@ const categoryMap = {
 
 export default async function Category({ params }) {
   const { slug } = await params;
-
   const category = categoryMap[slug];
 
   if (!category) {
