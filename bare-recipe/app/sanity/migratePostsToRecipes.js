@@ -9,7 +9,6 @@ async function migratePostsToRecipes() {
       .set({ _type: "recipe" })
       .commit()
   }
-  console.log(`✅ Migrated ${posts.length} documents`)
 }
 
 migratePostsToRecipes()

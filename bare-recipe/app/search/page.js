@@ -40,7 +40,6 @@ function Search() {
   }, [query, activeCat, showSauces]);
 (showSauces ? sauces : recipes).forEach(item => {
   if (item.categories?.some(c => c.toLowerCase().includes('beginner'))) {
-    console.log(item.title, item.categories)
   }
 })
 

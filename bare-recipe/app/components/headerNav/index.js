@@ -4,22 +4,33 @@ import logo from '../../assets/images/bare-recipe-logo.svg'
 import './HeaderNav.css'
 
 function HeaderNav() {
+ 
+ const navCategories = {
+  'beginner-cook': 'Beginner',
+  'sweet-treat': 'Sweets',
+};
+
+
   return (
+
     <div className="head-container">
-      <Image
+        <div className="head-content"> 
+        <Link href="/"><Image
         id="logo"
         src={logo}
         alt="Bare Recipe"
         width={125}
         height={100}
         priority
-      />
-
-      <div className="head-content">
-        <nav>
-          <Link href="/">Home</Link>
+      /></Link>
+        <nav>  
           <Link href="/search">Search</Link>
-        </nav>
+          {Object.entries(navCategories).map(([slug, label]) => (
+            <Link key={slug} href={`/category/${slug}`}>
+              {label}
+            </Link>
+          ))}        
+          </nav>
       </div>
     </div>
   )
