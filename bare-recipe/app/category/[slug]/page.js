@@ -5,14 +5,16 @@ import Hero from '../../components/hero';
 import Card from '../../components/resultsCard';
 import heroUrl from '../../assets/images/blank-recipe.webp';
 import './Search.css';
-  
-export async function generateMetadata({ params }) {
-  const slug = await params;
-  const categoryMap = {
-    "beginner-cook": "beginner-cook",
-    "sweet-treat": "sweet-treat",
-  };
+ 
+const categoryMap = {
+  'beginner-cook': 'Beginner Cook',
+  'sweet-treat': "Sweet Treat",
+};
 
+
+export async function generateMetadata({ params }) {
+  const {slug} = await params;
+  
   const category = categoryMap[slug];
   if (!category) {
     return {
@@ -52,8 +54,6 @@ export async function generateMetadata({ params }) {
   };
 }
 
-
-
 export async function generateStaticParams() {
   const categories = await client.fetch(`
   array::unique(*[_type == "recipe"].categories[])
@@ -65,11 +65,6 @@ export async function generateStaticParams() {
       slug: c.toLowerCase().replace(/\s+/g, '-'),
     }));
 }
-
-const categoryMap = {
-  'beginner-cook': 'Beginner Cook',
-  'sweet-treat': "Sweet Treat",
-};
 
 export default async function Category({ params }) {
   const { slug } = await params;
