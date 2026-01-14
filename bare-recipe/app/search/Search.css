@@ -110,7 +110,7 @@ button{
   border-radius: 6px;
   border: 1px solid var(--color-terracotta);
   cursor: pointer;
-  width: 80px;
+  width: 3.5rem;
   background: var(--color-linen);
   color: var(--color-terracotta);
 }
@@ -146,7 +146,7 @@ button{
     .cat-filter{
         display: grid;
         row-gap: 20px;
-        grid-template-columns: repeat(3, 2fr); /* 3 equal-width columns */
+        grid-template-columns: repeat(2, 2fr); /* 3 equal-width columns */
         margin-bottom: 20px;
     }
 }
