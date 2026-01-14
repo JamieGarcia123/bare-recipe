@@ -42,7 +42,34 @@ nav a {
     border-radius: 6px;
     box-shadow: 1px 5px 0px var(--color-terracotta);
 }
+.mobile-only {
+  display: block;
+}
 
+.desktop-only {
+  display: none;
+}
+
+@media (min-width: 768px) {
+
+  .mobile-only {
+    display: none;
+  }
+  .desktop-only {
+    display: contents;
+  }
+
+  .head-content{
+    width: 100vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+      nav {
+    width: 125px;
+  }
+    
+}
 
 @media print {
   .head-container{

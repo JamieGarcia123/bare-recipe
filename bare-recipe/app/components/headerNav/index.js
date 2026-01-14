@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import MobileNav from '../../components/mobileNav/index.js'
 import Image from 'next/image'
 import logo from '../../assets/images/bare-recipe-logo.svg'
 import './HeaderNav.css'
@@ -24,12 +25,13 @@ function HeaderNav() {
         priority
       /></Link>
         <nav>  
-          <Link href="/search">Search</Link>
+          <div className='mobile-only'><MobileNav navCategories={navCategories}/></div>
+         <div className='desktop-only'><Link href="/search">Search</Link>
           {Object.entries(navCategories).map(([slug, label]) => (
             <Link key={slug} href={`/category/${slug}`}>
               {label}
             </Link>
-          ))}        
+          ))}  </div>       
           </nav>
       </div>
     </div>

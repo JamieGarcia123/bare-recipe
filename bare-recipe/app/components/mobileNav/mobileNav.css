@@ -1,0 +1,47 @@
+.mobileNav{
+    position: relative;
+    flex-direction: row-reverse;
+}
+.mobileMenuBtn{
+    border-radius: 12px;
+    height: 50px;
+    font-size: larger;
+    width: 50px;
+    background-color: inherit;
+    border: 2px solid var(--color-terracotta);
+    color: var(--color-terracotta);
+}
+
+.mobileDropDown {
+    display: none;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: 0.3s ease, opacity 0.3s ease;
+}
+
+/* When dropdown is open */
+.mobileDropDown.open {
+     opacity: 1;
+    max-height: 24rem;
+    position: absolute;
+    top: 60px;
+    width: 150px;
+    height: 200px;
+    background: var(--color-linen);
+    display: grid;
+    justify-content: center;
+    align-content: space-around;
+    right: 0px;
+}
+
+/* Desktop rules */
+@media (min-width: 768px) {
+  .mobileDropDown {
+    max-height: none;
+    opacity: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem; /* same as gap-4 */
+  }
+}
