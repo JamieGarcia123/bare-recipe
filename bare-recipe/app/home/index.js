@@ -30,6 +30,8 @@ function Home() {
   return (
     <>
     <Head>
+        <title>Bare Recipe | No ads, no frills. Just the bare recipe!</title>
+
       <meta name="keywords" content="Simple Recipes, leftovers, cook easy meals, what to cook with what i have" />       
       <meta property="og:image" content={ogImageUrl} />
       <meta property="title" content="Bare Recipe | No ads, no frills. Just the bare recipe!"/>
