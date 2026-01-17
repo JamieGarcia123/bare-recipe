@@ -2,7 +2,7 @@ import Link from 'next/link'
 import MobileNav from '../../components/mobileNav/index.js'
 import Image from 'next/image'
 import logo from '../../assets/images/bare-recipe-logo.svg'
-import './HeaderNav.css'
+import styles from './headernav.module.css'
 
 function HeaderNav() {
  
@@ -14,8 +14,8 @@ function HeaderNav() {
 
   return (
 
-    <div className="head-container">
-        <div className="head-content"> 
+    <div className={styles.headContainer}>
+        <div className={styles.headContent}> 
         <Link href="/"><Image
         id="logo"
         src={logo}
@@ -24,9 +24,9 @@ function HeaderNav() {
         height={100}
         priority
       /></Link>
-        <nav>  
-          <div className='mobile-only'><MobileNav navCategories={navCategories}/></div>
-         <div className='desktop-only'><Link href="/search">Search</Link>
+        <nav className={styles.row}>  
+          <div className={styles.mobileOnly}><MobileNav navCategories={navCategories}/></div>
+         <div className={styles.desktopOnly}><Link href="/search">Search</Link>
           {Object.entries(navCategories).map(([slug, label]) => (
             <Link key={slug} href={`/category/${slug}`}>
               {label}

@@ -1,9 +1,17 @@
-import './Hero.css'
+import Image from 'next/image';
+import styles from './hero.module.css'
 
  function Hero({imageUrl, title, subText, showTitle}) {
     return  (
-        <header style={{backgroundImage: `url(${imageUrl.src})`}} className="hero-bg">
-            {showTitle ? <div className="grid-1-col">
+        <header className={styles.heroBg}>
+        <Image
+        src={imageUrl.src}
+        alt="Header image for background of page"
+        fill
+        priority  
+        className={styles.heroBgImg}
+        />
+            {showTitle ? <div className={styles.grid1Col}>
                 <h1>
                   {title}
                 </h1>

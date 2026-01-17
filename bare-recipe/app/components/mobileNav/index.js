@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import styles from "./mobileNav.module.css";
+import styles from "./mobilenav.module.css";
 export default function MobileNav({ navCategories }) {
   const pathname = usePathname(); // Detects route changes
 

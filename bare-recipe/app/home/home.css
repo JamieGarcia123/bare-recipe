@@ -48,7 +48,7 @@
 .midSection{
     display: grid;
     max-width: 1200px;
-    width: 100%;
+    width: 90%;
     margin: 40px auto 0px; 
     padding: 40px 20px;
     border-radius: 12px;

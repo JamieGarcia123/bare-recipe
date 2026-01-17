@@ -55,7 +55,12 @@ main{
     font-display: swap;
     src: local('ptags'), url('./assets/fonts/FunnelSans.ttf') format('truetype');
   }
+button:hover,
+a:hover
+{
+   cursor: url("./assets/images/cooking.png") 4 4, auto !important;
 
+}
 
 h1, h2 {
   font-family: headers;
