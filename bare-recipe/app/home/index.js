@@ -13,6 +13,19 @@ import wonderingImg from '../assets/images/ponderingwhattoeat.webp'
 import sauteeing from '../assets/images/girl-sauteeing.webp'
 import Image from "next/image";
 import "./home.css"
+export const metadata = {
+  title: "Bare Recipe | No ads, no frills. Just the bare recipe!",
+  description:
+    "Can't figure out what to make with what you have??? Let's help you out! Enter what you have and see what we come up with.",
+  keywords:
+    "Simple Recipes, leftovers, cook easy meals, what to cook with what i have",
+  openGraph: {
+    title: "Bare Recipe | No ads, no frills. Just the bare recipe!",
+    description:
+      "Can't figure out what to make with what you have??? Let's help you out! Enter what you have and see what we come up with.",
+    images: [ogImageUrl],
+  },
+};
 
 function Home() {
   const [randomRecipes, setRandomRecipes] = useState([]);
@@ -29,7 +42,7 @@ function Home() {
 
   return (
     <>
-    <Head>
+    {/* <Head>
         <title>Bare Recipe | No ads, no frills. Just the bare recipe!</title>
 
       <meta name="keywords" content="Simple Recipes, leftovers, cook easy meals, what to cook with what i have" />       
@@ -37,7 +50,7 @@ function Home() {
       <meta property="title" content="Bare Recipe | No ads, no frills. Just the bare recipe!"/>
       <meta property="og:description" content={"Can't figure out what to make with what you have??? Let's help you out! Enter what you have and see what we come up with."} />
       <meta name="description" content="Can't figure out what to make with what you have??? Let's help you out! Enter what you have and see what we come up with." />
-    </Head>
+    </Head> */}
     <div className="mainbody">
         <Hero title={"Bare Recipe"} imageUrl={spices} showTitle={true} subText={"No ads, no pointless back stories of auntie Sue at thanksgiving. Just. the bare recipe. "} />
         <ImageTextSection
