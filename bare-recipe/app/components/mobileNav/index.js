@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import './mobileNav.css'
+import styles from "./mobileNav.module.css";
 export default function MobileNav({ navCategories }) {
   const pathname = usePathname(); // Detects route changes
 
@@ -15,17 +15,17 @@ export default function MobileNav({ navCategories }) {
   }, [pathname]);
 
   return (
-    <nav className="mobileNav">
+    <nav className={styles.mobileNav}>
       {/* Mobile toggle button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="mobileMenuBtn"
+        className={styles.mobileMenuBtn}
       >
         {isOpen ? "X" : "☰"}
       </button>
 
       {/* Menu */}
-      <div className={`mobileDropDown ${isOpen ? "open" : ""}`}>
+      <div className={`${styles.mobileDropDown} ${isOpen ? "open" : ""}`}>
         <Link href="/search">Search</Link>
         {Object.entries(navCategories).map(([slug, label]) => (
           <Link key={slug} href={`/category/${slug}`}>
