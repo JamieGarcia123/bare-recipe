@@ -1,13 +1,14 @@
 
 'use client';
-import { useEffect, useState } from 'react';
-import { fetchRecipes } from '../sanity/fetchrecipes';
-import { urlFor } from '../sanity/client';
-import Image from 'next/image';
-import Link from 'next/link';
-import styles from './randomCard.module.css'
+import { useEffect, useState } from 'react'
+import { fetchRecipes } from '../../sanity/fetchrecipes';
+import {  urlFor } from '../../sanity/client';
+import Image from 'next/image'
+import Link from 'next/link'
+import styles from "./randomcard.module.css"
 
-export default function RandomCards() {
+
+function RandomCards() {
   const [randomRecipes, setRandomRecipes] = useState([]);
 
   useEffect(() => {
@@ -42,7 +43,6 @@ export default function RandomCards() {
             width={250}
             height={250}
             loading="lazy"
-            className={styles.midImage}
           />
           <Link href={`/recipe/${recipe.slug}`} className={styles.midButton}>
             {recipe.title}
@@ -52,3 +52,5 @@ export default function RandomCards() {
     </section>
   );
 }
+
+export default RandomCards

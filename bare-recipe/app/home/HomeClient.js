@@ -1,32 +1,15 @@
 'use client'
-
-import { useEffect, useState } from "react";
-import { fetchRecipes } from "../sanity/fetchrecipes";
 import Hero from "../components/hero";
 import spices from "../assets/images/spices-header-bg.webp";
 import ImageTextSection from "../components/ImageTextSection";
 import wonderingImg from "../assets/images/ponderingwhattoeat.webp";
 import sauteeing from "../assets/images/girl-sauteeing.webp";
-import Image from "next/image";
 import "./home.css";
-import RandomCards from "app/components/randomCard";
+import RandomCards from "../components/randomCard";
 
 function HomeClient() {
-  const [randomRecipes, setRandomRecipes] = useState([]);
-
-  useEffect(() => {
-    const loadData = async () => {
-      const allRecipes = await fetchRecipes();
-      const shuffled = [...allRecipes].sort(() => Math.random() - 0.5);
-      setRandomRecipes(shuffled.slice(0, 3));
-    };
-
-    loadData();
-  }, []);
-
   return (
     <div className="mainbody">
-
       <Hero
         title="Bare Recipe"
         imageUrl={spices}

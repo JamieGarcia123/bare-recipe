@@ -1,3 +1,7 @@
+
+.test{
+  color: red;
+}
 .randomMidGrid{
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
@@ -11,7 +15,7 @@
     justify-items: center;
 }
 .gridTitle {
-  grid-column: 1 / -1; /* span all columns */
+  grid-column: 1 / -1; 
   text-align: center;
   margin-bottom: 1rem;
 }
