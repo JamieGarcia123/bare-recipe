@@ -14,12 +14,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://bare-recipe.com/" />
         <meta property="og:image" content="https://bare-recipe.com/recipe-book-svg.svg" />
-              </head>
-              <body>
+        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="icon" href="/favicon.ico" /> 
+      </head>
+      <body>
         <HeaderNav />
         {children}
         <Footer />
-      </body>
+    </body>
     </html>
   )
 }
