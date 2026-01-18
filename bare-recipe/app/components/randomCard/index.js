@@ -34,7 +34,7 @@ function RandomCards() {
 
   return (
     <section className={styles.randomMidGrid}>
-      <h3 className={styles.gridTitle}>Check out these recipes!</h3>
+      <h3 className={styles.gridTitle}>Check out these tasty recipes!</h3>
       {randomRecipes.map((recipe) => (
         <div key={recipe._id} className={styles.midCol}>
           <Image
