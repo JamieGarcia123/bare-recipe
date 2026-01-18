@@ -170,7 +170,7 @@ export default async function Detail({ params }) {
           {recipe.instructions?.length ? (
             <ol>
               {recipe.instructions.map((step, i) => (
-                <li key={i}>
+                <li key={i} style={{ textTransform: 'capitalize' }}>
                   <strong>Step {i + 1}:</strong> {step}
                 </li>
               ))}

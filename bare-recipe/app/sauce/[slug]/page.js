@@ -139,7 +139,7 @@ export default async function SauceDetail({ params}) {
             {sauce.instructions && sauce.instructions.length > 1 ? (
                 <ol>
                 {sauce.instructions.map((step, index) => (
-                    <li key={index}><strong>Step {index + 1}:</strong> {step} </li>
+                    <li key={index}><strong>Step {index + 1}:</strong><span style={{ textTransform: 'capitalize' }}> {step} </span></li>
                 ))}
                 </ol>
             ) : (
