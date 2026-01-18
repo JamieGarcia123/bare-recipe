@@ -1,7 +1,5 @@
 
-.test{
-  color: red;
-}
+
 .randomMidGrid{
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
