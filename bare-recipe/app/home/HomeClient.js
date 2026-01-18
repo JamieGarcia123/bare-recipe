@@ -1,9 +1,7 @@
 'use client'
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { fetchRecipes } from "../sanity/fetchrecipes";
-import { urlFor } from "../sanity/client";
 import Hero from "../components/hero";
 import spices from "../assets/images/spices-header-bg.webp";
 import ImageTextSection from "../components/ImageTextSection";
@@ -11,6 +9,7 @@ import wonderingImg from "../assets/images/ponderingwhattoeat.webp";
 import sauteeing from "../assets/images/girl-sauteeing.webp";
 import Image from "next/image";
 import "./home.css";
+import RandomCards from "app/components/randomCard";
 
 function HomeClient() {
   const [randomRecipes, setRandomRecipes] = useState([]);
@@ -61,36 +60,7 @@ function HomeClient() {
           Every recipe is designed to be readable, practical, and usable.
         </p>
       </section>
-
-      <section className="midGrid">
-        <h3 className="gridTitle">Check out these recipes!</h3>
-
-        {randomRecipes.length === 0 && (
-          <>
-            {/* ⚡ Lightweight skeletons */}
-            <div className="midCol skeleton"></div>
-            <div className="midCol skeleton"></div>
-            <div className="midCol skeleton"></div>
-          </>
-        )}
-
-        {randomRecipes.map((recipe) => (
-          <div key={recipe._id} className="midCol">
-            <Image
-              src={urlFor(recipe.image)}
-              alt={recipe.title}
-              width={250}
-              height={250}
-              loading="lazy"          // ⭐ ADDED
-              className="midImage"
-            />
-            <Link href={`/recipe/${recipe.slug}`} className="midButton">
-              {recipe.title}
-            </Link>
-          </div>
-        ))}
-      </section>
-
+      <RandomCards/>
       <ImageTextSection
         col1Class="reversefirstsectioncard"
         col2Class="reversesecondsectioncard"
