@@ -8,7 +8,7 @@ import styles from './hero.module.css'
         src={imageUrl.src}
         alt="Header image for background of page"
         fill
-        priority  
+        priority={true}  
         className={styles.heroBgImg}
         />
             {showTitle ? <div className={styles.grid1Col}>
