@@ -5,7 +5,7 @@ import { fetchRecipes } from '../../sanity/fetchrecipes';
 import {  urlFor } from '../../sanity/client';
 import Image from 'next/image'
 import Link from 'next/link'
-import styles from "./randomcard.module.css"
+import styles from "./randomCard.module.css"
 
 
 function RandomCards() {
