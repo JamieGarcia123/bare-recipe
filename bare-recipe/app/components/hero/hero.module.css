@@ -20,6 +20,7 @@
 
 .grid1Col{
     grid-column: 1;
+    max-width: 800px;
     text-align: center;
 }
 .grid1Col p{

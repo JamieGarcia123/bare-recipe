@@ -1,7 +1,10 @@
+import Script from "next/script";
+
 import HeaderNav from './components/headerNav'
 import Footer from './components/footer'
 import './globals.css'
-import'../app/home/home.css'
+import './App.css'; 
+
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -15,7 +18,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta property="og:url" content="https://bare-recipe.com/" />
         <meta property="og:image" content="https://bare-recipe.com/recipe-book-svg.svg" />
         <link rel="icon" href="/favicon.png" type="image/png" />
-        <link rel="icon" href="/favicon.ico" /> 
+        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        />
+
+ 
       </head>
       <body>
         <HeaderNav />

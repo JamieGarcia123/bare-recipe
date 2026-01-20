@@ -14,7 +14,7 @@ function HomeClient() {
         title="Bare Recipe"
         imageUrl={spices}
         showTitle={true}
-        subText="No ads, no pointless back stories of auntie Sue at thanksgiving. Just. the bare recipe."
+        subText="Bare Recipe is built for people who just want clear, simple recipes without ads, popups, or life stories. We focus on fast, readable instructions so you can start cooking immediately…"
       />
 
       <ImageTextSection
@@ -30,18 +30,42 @@ function HomeClient() {
         altText="Man in kitchen wondering what to eat."
         imageUrl={wonderingImg}
       />
-
       <section className="midSection">
+        <div className="container">
+        <h2>What Makes Us Different</h2>
+        <ul>
+          <li><i className="fa fa-times"></i>
+              No ads or walls of text</li>
+          <li><i className="fa fa-cutlery"></i>Ingredient-first layout</li>
+          <li><i className="fa fa-list-ol"></i>Beginner-friendly steps</li>
+          <li><i className="fa fa-filter"></i>Quick filtering</li>
+          <li><i className="fa fa-clock"></i>Straightforward cooking times</li>
+          <li><i className="fa fa-book"></i>Real-life, practical recipes</li>
+        </ul>
+        </div>
+        <div className="container">
         <h2>Cooking should be simple.</h2>
         <ul>
-          <li>Clear ingredients & steps - no fluff, no distractions.</li>
-          <li>Easy filtering by category, skill level, and type.</li>
-          <li>Simple sharing - share a recipe without sending an essay.</li>
-          <li>Beginner-friendly recipes alongside more advance options.</li>
+          <li><i className="fa fa-list-ol"></i>Clear ingredients & steps - no fluff, no distractions.</li>
+          <li><i className="fa fa-filter"></i>Easy filtering by category, skill level, and type.</li>
+          <li><i className="fa fa-share"></i>Simple sharing - share a recipe without sending an essay.</li>
+          <li><i className="fa fa-certificate"></i>Beginner-friendly recipes alongside more advance options.</li>
         </ul>
         <p>
           Every recipe is designed to be readable, practical, and usable.
         </p>
+        </div>
+        <div className="container">
+        <h2>Who this website is for</h2>
+        <ul>
+          <li><i className="fa fa-users"></i>Busy cooks</li>
+          <li><i className="fa fa-mobile"></i>People who hate scrolling through ads</li>
+          <li><i className="fa fa-list-ol"></i>Beginners who want simple steps</li>
+          <li><i className="fa fa-shopping-bag"></i>People cooking with limited ingredients</li>
+          <li><i className="fa fa-clock"></i>Straightforward cooking times</li>
+          <li><i className="fa fa-cutlery"></i>Families looking for quick meals</li>
+        </ul>
+        </div>
       </section>
       <RandomCards/>
       <ImageTextSection
