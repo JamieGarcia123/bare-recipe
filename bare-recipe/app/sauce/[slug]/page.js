@@ -26,8 +26,8 @@ export async function generateMetadata({ params }) {
   }
 
   const query = `*[_type == "sauce" && slug.current == $slug][0]{
-    title,
-    snippet,
+    seoTitle,
+    seoDescription,
     image
   }`;
 
