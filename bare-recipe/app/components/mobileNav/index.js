@@ -25,10 +25,10 @@ export default function MobileNav({ navCategories }) {
       </button>
 
       {/* Menu */}
-      <div className={`${styles.mobileDropDown} ${isOpen ? "open" : ""}`}>
-        <Link href="/search">Search</Link>
+      <div className={`${styles.mobileDropDown} ${isOpen ? `${styles.open}` : ""}`}>
+        <Link className={styles.mobileMenuBtn} href="/search">Search</Link>
         {Object.entries(navCategories).map(([slug, label]) => (
-          <Link key={slug} href={`/category/${slug}`}>
+          <Link className={styles.mobileMenuBtn} key={slug} href={`/category/${slug}`}>
             {label}
           </Link>
         ))}

@@ -125,7 +125,7 @@ button{
     .results-grid{
         width: auto;
         place-items: center;
-       grid-template-columns: repeat(1, 1fr); /* 3 equal-width columns */
+       grid-template-columns: repeat(2, 1fr); /* 3 equal-width columns */
     grid-template-rows: repeat(3, auto);   /* 3 rows that size to content */
     }
     .search-input-container{
@@ -149,4 +149,12 @@ button{
         grid-template-columns: repeat(2, 2fr); /* 3 equal-width columns */
         margin-bottom: 20px;
     }
+}
+
+@media screen and (max-width: 780px){
+    .results-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+    }
+    
 }

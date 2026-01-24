@@ -28,7 +28,7 @@
 }
 @media screen and (max-width:  786px) {
   .heroBg{
-    min-height: 425px;
+    max-height: 425px;
   }
   
 }
