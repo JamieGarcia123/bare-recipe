@@ -9,6 +9,18 @@ export default {
       type: 'string',
       validation: Rule => Rule.required(),
     },
+      {
+      name: 'seo-title',
+      title: 'SEO Title',
+      type: 'string',
+      validation: Rule => Rule.required(),
+    },
+          {
+      name: 'seo-description',
+      title: 'SEO Description',
+      type: 'string',
+      validation: Rule => Rule.required(),
+    },
     {
       name: 'slug',
       title: 'Slug',
