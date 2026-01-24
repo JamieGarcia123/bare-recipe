@@ -10,13 +10,13 @@ export default {
       validation: Rule => Rule.required(),
     },
         {
-          name: 'seo-title',
+          name: 'seoTitle',
           title: 'SEO Title',
           type: 'string',
           validation: Rule => Rule.required(),
         },
               {
-          name: 'seo-description',
+          name: 'seoDescription',
           title: 'SEO Description',
           type: 'string',
           validation: Rule => Rule.required(),

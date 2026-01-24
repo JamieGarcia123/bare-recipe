@@ -56,11 +56,11 @@ export async function generateMetadata({ params }) {
   const imageUrl = recipe.image ? urlFor(recipe.image) : '/default-og-image.jpg';
 
   return {
-    title: `${recipe.title} Recipe | Bare Recipe`,
-    description: recipe.snippet,
+    title: `${recipe.seoTitle}`,
+    description: recipe.seoDescription,
     openGraph: {
-      title: `${recipe.title} Recipe | Bare Recipe`,
-      description: recipe.snippet,
+      title: `${recipe.seoTitle}`,
+      description: recipe.seoDescription,
       images: [
         {
           url: imageUrl,
