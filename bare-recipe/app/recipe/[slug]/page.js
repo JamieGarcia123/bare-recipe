@@ -8,7 +8,7 @@ import { decimalToFraction } from '../../assets/helpers/helpers';
 import "./detail.css"; 
 import heroImage from "../../assets/images/emptykitchcounter.webp";
 import GalleryCarousel from '../../components/gallery/index.js';
-
+import RandomCards from '../../components/randomCard';
 export async function generateMetadata({ params }) {
   const {slug}  = await params;
   if (!slug) {
@@ -82,7 +82,6 @@ export async function generateMetadata({ params }) {
 export async function generateStaticParams() {
   const query = `*[_type == "recipe"]{ "slug": slug.current }`;
   const recipes = await client.fetch(query);
-
   return recipes.map((recipe) => ({
     slug: recipe.slug,
   }));
@@ -135,20 +134,16 @@ export default async function Detail({ params }) {
       />
       <section className="section-grid">
         <div className="sectionCol1">
-      
             <GalleryCarousel  featuredImage={recipe.image}
-            images={recipe.gallery} />
-          
+            images={recipe.gallery} /> 
           <h1>{recipe.title}</h1>
           <h2>{recipe.snippet}</h2>
           <PrintButton/>
         </div>
-
         <div className="timeRow">
           <p>Cook time: {recipe.cookTime} mins</p>
           <p>Prep time: {recipe.prepTime} mins</p>
         </div>
-
         <div className="ingredientCol">
           <h3>Ingredients</h3>
           {recipe.ingredients?.length ? (
@@ -164,7 +159,6 @@ export default async function Detail({ params }) {
             <p>No ingredients found.</p>
           )}
         </div>
-
         <div className="ingredientCol">
           <h3>Instructions</h3>
           {recipe.instructions?.length ? (
@@ -183,10 +177,10 @@ export default async function Detail({ params }) {
           )}
         </div>
       </section>
-
       {recipe.goesWellWith?.length > 0 && (
         <aside className="sauce-section">
           <h3>Try This With</h3>
+          <p>Sauces that pair well with this recipe! Look like a master chef with these combinations to complete your meal!</p>
           <div className="sauce-grid">
             {recipe.goesWellWith.map((sauce) => (
               <div key={sauce._id} className="sauce-card">
@@ -208,6 +202,7 @@ export default async function Detail({ params }) {
           </div>
         </aside>
       )}
+      <RandomCards/>
     </>
   );
 }

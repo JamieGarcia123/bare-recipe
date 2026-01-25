@@ -7,6 +7,7 @@ import PrintButton from '../../components/button/printbutton.js'
 import detailImage from '../../assets/images/emptykitchcounter.webp'
 import { decimalToFraction } from '../../assets/helpers/helpers'
 import './saucedetail.css';
+import RandomCards from '../../components/randomCard';
 
 
 // 2️⃣ Generate dynamic metadata for each recipe page
@@ -147,6 +148,7 @@ export default async function SauceDetail({ params}) {
             )}
         </div>
       </section>
+      <RandomCards/>
     </>
   );
 }
