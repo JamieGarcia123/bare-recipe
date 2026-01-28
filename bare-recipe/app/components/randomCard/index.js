@@ -33,23 +33,26 @@ function RandomCards() {
   }
 
   return (
-    <section className={styles.randomMidGrid}>
+    <aside className={styles.randomSection}>
       <h3 className={styles.gridTitle}>Check out these tasty recipes!</h3>
+     <div className={styles.randomMidGrid}>
       {randomRecipes.map((recipe) => (
-        <div key={recipe._id} className={styles.midCol}>
+        <div key={recipe._id} className={styles.randomCard}>
+          <Link href={`/recipe/${recipe.slug}`} className={styles.rahdomLink}>
           <Image
             src={urlFor(recipe.image)}
             alt={recipe.title}
             width={250}
             height={250}
             loading="lazy"
+            className={styles.randomImage}
           />
-          <Link href={`/recipe/${recipe.slug}`} className={styles.midButton}>
-            {recipe.title}
+            <h4>{recipe.title}</h4>
           </Link>
         </div>
       ))}
-    </section>
+      </div>
+    </aside>
   );
 }
 

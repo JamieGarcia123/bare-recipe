@@ -1,17 +1,47 @@
 
 
-.randomMidGrid{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
-    grid-template-rows: auto 1fr;
-    column-gap: 4em;
+.randomSection {
+    border-top: 2px dashed var(--color-muted-sage);
     max-width: 1200px;
     width: 100%;
-    margin: 20px auto;
-    padding: 40px 0px;
-    height: 375px;
-    justify-items: center;
+    margin: auto;
 }
+.randomMidGrid{
+     display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;  
+    max-width: 1200px;
+    width: 100%;
+    margin: 20px auto; 
+}
+.randomCard {
+  text-align: center;
+  background: var(--color-white);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+
+.randomCard:hover {
+  transform: translateY(-5px);
+}
+
+.randomImage {
+  width: 100%;
+  max-width: 250px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.randomLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+
 .gridTitle {
   grid-column: 1 / -1; 
   text-align: center;
