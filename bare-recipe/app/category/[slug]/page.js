@@ -106,7 +106,7 @@ export default async function Category({ params }) {
           <Link key={item._id} href={`/recipe/${item.slug}`}>
             <Card
               name={item.title}
-              imageUrl={urlFor(item.image)}
+              imageUrl={item.image}
               description={item.snippet}
               isGlutenFree={item.isGlutenFree}
               isVegan={item.isVegan}

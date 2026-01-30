@@ -53,19 +53,20 @@ export async function generateMetadata({ params }) {
     };
   }
 
-  const imageUrl = recipe.image ? urlFor(recipe.image) : '/default-og-image.jpg';
-
+  const imageUrl = recipe.image ? urlFor(recipe.image).width(1200).height(630).url() : '/default-og-image.jpg';
+console.log(imageUrl)
   return {
     title: `${recipe.seoTitle}`,
-    description: recipe.seoDescription,
+    description: `${recipe.seoDescription}`,
     openGraph: {
       title: `${recipe.seoTitle}`,
-      description: recipe.seoDescription,
+      description: `${recipe.seoDescription}`,
       images: [
         {
           url: imageUrl,
           width: 1200,
           height: 630,
+          alt: recipe.seoTitle,
         },
       ],
     },  
@@ -91,30 +92,9 @@ export default async function Detail({ params }) {
   const {slug}  = await params;
 
   const query = `*[_type == "recipe" && slug.current == $slug][0]{
-    title,
-    snippet,
-    image,
-    slug,
-    cookTime,
-    prepTime,
-    ingredients[] {
-      name,
-      amount,
-      measurement
-    },
-    gallery[]{
-      _key,
-      alt,
-      asset
-    },
-    instructions,
-    goesWellWith[]->{
-      title,
-      _id,
-      "imageUrl": image.asset->url,
-      "slug": slug.current
-    }
-  }`;
+    ...,     
+    slug
+    }`;
 
   const recipe = await client.fetch(query, { slug });
   if (!recipe) {
@@ -134,7 +114,7 @@ export default async function Detail({ params }) {
       />
       <section className="section-grid">
         <div className="sectionCol1">
-            <GalleryCarousel  featuredImage={recipe.image}
+            <GalleryCarousel  featuredImage={urlFor(recipe.image).width(800).height(600).url()}
             images={recipe.gallery} /> 
           <h1>{recipe.title}</h1>
           <h2>{recipe.snippet}</h2>
@@ -142,6 +122,7 @@ export default async function Detail({ params }) {
         </div>
         <div className="timeRow">
           <p>Cook time: {recipe.cookTime} mins</p>
+
           <p>Prep time: {recipe.prepTime} mins</p>
         </div>
         <div className="ingredientCol">

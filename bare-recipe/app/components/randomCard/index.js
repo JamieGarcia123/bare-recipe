@@ -40,7 +40,7 @@ function RandomCards() {
         <div key={recipe._id} className={styles.randomCard}>
           <Link href={`/recipe/${recipe.slug}`} className={styles.rahdomLink}>
           <Image
-            src={urlFor(recipe.image)}
+            src={urlFor(recipe.image).width(300).height(200).url()}
             alt={recipe.title}
             width={250}
             height={250}

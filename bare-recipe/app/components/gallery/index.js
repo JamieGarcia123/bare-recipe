@@ -10,10 +10,17 @@ import Image from 'next/image';
 
 // Dynamic import of Carousel to avoid Turbopack SSR issues
 const Carousel = dynamic(() => import('react-multi-carousel'), { ssr: false })
+const isSanityImage = (img) => img?.asset?._ref
 
 export default function GalleryCarousel({ featuredImage, images }) {
 
   const galleryRef = useRef(null)
+  // Filter out invalid images upfront
+  const validImages = Array.isArray(images)
+  ? images.filter(img => img && img.asset)
+  : []
+
+  const imageCount = validImages.length
 
   useEffect(() => {
   function handleClickOutside(event) {
@@ -21,19 +28,21 @@ export default function GalleryCarousel({ featuredImage, images }) {
       galleryRef.current &&
       !galleryRef.current.contains(event.target)
     ) {
-      // Reset back to featured image
-      setActiveImage(featuredImage)
-    }
+      setActiveImage(
+        isSanityImage(featuredImage)
+          ? featuredImage
+          : validImages[0] || null
+      )    }
   }
-
   document.addEventListener('mousedown', handleClickOutside)
-
   return () => {
     document.removeEventListener('mousedown', handleClickOutside)
   }
-}, [featuredImage])
-  const [activeImage, setActiveImage] = useState(
-  featuredImage || images[0]
+  }, [featuredImage])
+    const [activeImage, setActiveImage] = useState(
+  isSanityImage(featuredImage)
+    ? featuredImage
+    : validImages[0] || null
 )
 const CustomLeftArrow = ({ onClick }) => (
   <button className="custom-arrow left" onClick={onClick} aria-label="Previous">
@@ -46,12 +55,6 @@ const CustomRightArrow = ({ onClick }) => (
     ›
   </button>
 )
-  // Filter out invalid images upfront
-const validImages = Array.isArray(images)
-  ? images.filter(img => img && img.asset)
-  : []
-
-const imageCount = validImages.length
 
 const responsive = {
   desktop: {
@@ -75,7 +78,7 @@ const responsive = {
       width={800}
       height={500}
       className="detail-image"
-      src={urlFor(activeImage)}
+      src={urlFor(activeImage).width(800).height(600).url()}
       alt={activeImage.alt || ''} />
   </div>
      {validImages.length > 0 && (
@@ -90,9 +93,9 @@ const responsive = {
           containerClass="carousel-container"
           itemClass="carousel-item"
         >
-          {validImages.map((img, i) => (
+          {validImages?.map((img, i) => (
               <Image
-                src={urlFor(img)}
+                src={urlFor(img).width(800).height(600).url()}
                 alt={img.alt || ''}
                 loading="lazy"
                 height={150}

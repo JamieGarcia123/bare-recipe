@@ -46,14 +46,14 @@ export async function generateMetadata({ params }) {
     };
   }
 
-  const imageUrl = sauce.image ? urlFor(sauce.image) : '/default-og-image.jpg';
+  const imageUrl = sauce.image ? urlFor(sauce.image).width(1200).height(630).url() : '/default-og-image.jpg';
 
   return {
     title: `${sauce.seoTitle}`,
-    description: sauce.seoDescription,
+    description: `${sauce.seoDescription}`,
     openGraph: {
       title: `${sauce.seoTitle}`,
-      description: sauce.seoDescription,
+      description: `${sauce.seoDescription}`,
       images: [
         {
           url: imageUrl,
@@ -85,7 +85,7 @@ export default async function SauceDetail({ params}) {
   const {slug}  = await params;  
         const query = `*[_type == "sauce" && slug.current == $slug][0]{
           ...,
-          "imageUrl": image.asset->url,
+         
              slug
         }`;
        
@@ -110,7 +110,7 @@ export default async function SauceDetail({ params}) {
           width={800} 
           height={400} 
           alt={sauce.title} 
-          src={urlFor(sauce.image)}/>
+          src={urlFor(sauce.image).width(800).height(600).url()}/>
           <h1>{sauce.title}</h1>
           <h2>{sauce.snippet}</h2>
           <PrintButton/>
