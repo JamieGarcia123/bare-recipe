@@ -19,7 +19,7 @@ export async function generateMetadata({ params }) {
         title: "Recipe Not Found | Bare Recipe",
         description: "No recipe slug provided",
         images: [
-          { url: '/default-og-image.jpg', 
+          { url: '/blank-recipe.jpg', 
             width: 1200, 
             height: 630 
           }
@@ -48,12 +48,12 @@ export async function generateMetadata({ params }) {
       openGraph: {
         title: `Recipe Not Found | Bare Recipe`,
         description: `Oops! This recipe does not exist.`,
-        images: [{ url: '/default-og-image.jpg', width: 1200, height: 630 }],
+        images: [{ url: '/blank-recipe.jpg', width: 1200, height: 630 }],
       },
     };
   }
 
-  const imageUrl = recipe.image ? urlFor(recipe.image).width(1200).height(630).url() : '/default-og-image.jpg';
+  const imageUrl = recipe.image ? urlFor(recipe.image).width(1200).height(630) : '/blank-recipe.jpg';
 console.log(imageUrl)
   return {
     title: `${recipe.seoTitle}`,

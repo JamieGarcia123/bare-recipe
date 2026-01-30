@@ -1,5 +1,3 @@
-import Link from 'next/link';
-import Head from 'next/head';
 import Image from 'next/image';
 import Hero from "../../components/hero";
 import { client, urlFor } from "../../sanity/client";
@@ -21,7 +19,7 @@ export async function generateMetadata({ params }) {
       openGraph: {
         title: "Sauce Not Found | Bare Recipe",
         description: "No Sauce slug provided",
-        images: [{ url: '/default-og-image.jpg', width: 1200, height: 630 }],
+        images: [{ url: '/blank-recipe.jpg', width: 1200, height: 630 }],
       },
     };
   }
@@ -41,12 +39,12 @@ export async function generateMetadata({ params }) {
       openGraph: {
         title: `Sauce Not Found | Bare Recipe`,
         description: `Oops! This sauce does not exist.`,
-        images: [{ url: '/default-og-image.jpg', width: 1200, height: 630 }],
+        images: [{ url: '/blank-recipe.jpg', width: 1200, height: 630 }],
       },
     };
   }
 
-  const imageUrl = sauce.image ? urlFor(sauce.image).width(1200).height(630).url() : '/default-og-image.jpg';
+  const imageUrl = sauce.image ? urlFor(sauce.image).width(1200).height(630) : '/blank-recipe.jpg';
 
   return {
     title: `${sauce.seoTitle}`,
