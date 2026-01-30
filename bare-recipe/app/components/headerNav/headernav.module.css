@@ -69,7 +69,13 @@
       #nav nav {
     width: 125px;
   }
-    
+     .row {
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 150px;
+    width: 100%;
+}
+
 }
 
 @media print {

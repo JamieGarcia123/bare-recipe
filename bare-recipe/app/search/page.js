@@ -151,7 +151,7 @@ function Search() {
             >
               <Card
                 name={item.title}
-                imageUrl={item.image}
+                imageUrl={(item.image)}
                 description={item.snippet}
                 isGlutenFree={item.isGlutenFree}
                 isVegan={item.isVegan}

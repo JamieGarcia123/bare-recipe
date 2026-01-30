@@ -11,6 +11,7 @@
     align-items: center;
     text-transform: uppercase;
     border-radius: 6px;
+    border: none;
     box-shadow: 1px 5px 0px var(--color-terracotta);
 }
 

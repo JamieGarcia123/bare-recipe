@@ -10,7 +10,8 @@ i {
     margin-right: 5px;
 }
 /* Example: make all check icons green */
-.fa-times, .fa-filter, .fa-cutlery, .fa-clock-o, .fa-users, .fa-list-ol, .fa-shopping-bag, .fa-mobile, .fa-clock, .fa-share, .fa-book, .fa-certificate {
+.fa-times, .fa-filter, .fa-cutlery, .fa-clock-o, .fa-users, .fa-list-ol, .fa-shopping-bag, .fa-mobile, .fa-clock, .fa-share,  .fa-facebook-f
+, .fa-book, .fa-certificate {
   display: contents;
   color: var(--color-linen);
   font-size: 1rem;

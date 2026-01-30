@@ -23,7 +23,9 @@ function HeaderNav() {
         width={125}
         height={100}
         priority
-      /></Link>
+      /></Link><Link href="https://www.facebook.com/profile.php?id=61587035770390" target="_blank"
+>Follow us!!&nbsp;<i className="fa fa-facebook-f" aria-hidden="true"></i></Link>
+
         <nav className={styles.row}>  
           <div className={styles.mobileOnly}><MobileNav navCategories={navCategories}/></div>
          <div className={styles.desktopOnly}><Link href="/search">Search</Link>
