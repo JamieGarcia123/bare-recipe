@@ -10,15 +10,22 @@ import Image from 'next/image';
 
 // Dynamic import of Carousel to avoid Turbopack SSR issues
 const Carousel = dynamic(() => import('react-multi-carousel'), { ssr: false })
-const isSanityImage = (img) => img?.asset?._ref
+const isSanityImage = (img) => Boolean(img?.asset?._ref)
 
 export default function GalleryCarousel({ featuredImage, images }) {
 
   const galleryRef = useRef(null)
+  
   // Filter out invalid images upfront
   const validImages = Array.isArray(images)
   ? images.filter(img => img && img.asset)
   : []
+
+  const [activeImage, setActiveImage] = useState(
+    isSanityImage(featuredImage)
+    ? featuredImage
+    : validImages[0] || null
+  )
 
   const imageCount = validImages.length
 
@@ -39,11 +46,7 @@ export default function GalleryCarousel({ featuredImage, images }) {
     document.removeEventListener('mousedown', handleClickOutside)
   }
   }, [featuredImage])
-    const [activeImage, setActiveImage] = useState(
-  isSanityImage(featuredImage)
-    ? featuredImage
-    : validImages[0] || null
-)
+
 const CustomLeftArrow = ({ onClick }) => (
   <button className="custom-arrow left" onClick={onClick} aria-label="Previous">
     ‹
@@ -74,12 +77,15 @@ const responsive = {
 
   return ( <>
   <div className="">
-    <Image
-      width={800}
-      height={500}
-      className="detail-image"
-      src={urlFor(activeImage).width(800).height(600).url()}
-      alt={activeImage.alt || ''} />
+   {isSanityImage(activeImage) && (
+  <Image
+    width={800}
+    height={500}
+    className="detail-image"
+    src={urlFor(activeImage).width(800).height(600).url()}
+    alt={activeImage.alt || ''}
+  />
+)}
   </div>
      {validImages.length > 0 && (
       <div className="gallery-wrapper"  ref={galleryRef}>
@@ -100,7 +106,7 @@ const responsive = {
                 loading="lazy"
                 height={150}
                 width={150}
-                onClick={() => setActiveImage(img)}
+                onClick={() => isSanityImage(img) && setActiveImage(img)}
                 className='thumbnail'
                 title={img.alt || 'Image from recipe steps'} />
           ))}

@@ -54,7 +54,6 @@ export async function generateMetadata({ params }) {
   }
 
   const imageUrl = recipe.image ? urlFor(recipe.image).width(1200).height(630) : '/blank-recipe.jpg';
-console.log(imageUrl)
   return {
     title: `${recipe.seoTitle}`,
     description: `${recipe.seoDescription}`,
