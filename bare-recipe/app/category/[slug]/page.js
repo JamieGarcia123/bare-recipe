@@ -4,7 +4,7 @@ import { client, urlFor } from '../../sanity/client';
 import Hero from '../../components/hero';
 import Card from '../../components/resultsCard';
 import heroUrl from '../../assets/images/blank-recipe.webp';
-import './Search.css';
+import './category.css';
  
 const categoryMap = {
   'beginner-cook': 'Beginner Cook',

@@ -44,7 +44,7 @@ export async function generateMetadata({ params }) {
     };
   }
 
-  const imageUrl = sauce.image ? urlFor(sauce.image).width(1200).height(630) : '/blank-recipe.jpg';
+  const imageUrl = sauce.image ? urlFor(sauce.image) : '/blank-recipe.jpg';
 
   return {
     title: `${sauce.seoTitle}`,
@@ -108,7 +108,7 @@ export default async function SauceDetail({ params}) {
           width={800} 
           height={400} 
           alt={sauce.title} 
-          src={urlFor(sauce.image).width(800).height(600).url()}/>
+          src={urlFor(sauce.image)}/>
           <h1>{sauce.title}</h1>
           <h2>{sauce.snippet}</h2>
           <PrintButton/>

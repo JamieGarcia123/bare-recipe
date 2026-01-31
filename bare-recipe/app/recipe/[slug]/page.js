@@ -53,7 +53,7 @@ export async function generateMetadata({ params }) {
     };
   }
 
-  const imageUrl = recipe.image ? urlFor(recipe.image).width(1200).height(630) : '/blank-recipe.jpg';
+  const imageUrl = recipe.image ? urlFor(recipe.image) : '/blank-recipe.jpg';
   return {
     title: `${recipe.seoTitle}`,
     description: `${recipe.seoDescription}`,
@@ -113,7 +113,7 @@ export default async function Detail({ params }) {
       />
       <section className="section-grid">
         <div className="sectionCol1">
-            <GalleryCarousel  featuredImage={urlFor(recipe.image).width(800).height(600).url()}
+            <GalleryCarousel  featuredImage={urlFor(recipe.image)}
             images={recipe.gallery} /> 
           <h1>{recipe.title}</h1>
           <h2>{recipe.snippet}</h2>

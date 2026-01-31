@@ -10,22 +10,15 @@ import Image from 'next/image';
 
 // Dynamic import of Carousel to avoid Turbopack SSR issues
 const Carousel = dynamic(() => import('react-multi-carousel'), { ssr: false })
-const isSanityImage = (img) => Boolean(img?.asset?._ref)
+const isSanityImage = (img) => img?.asset?._ref
 
 export default function GalleryCarousel({ featuredImage, images }) {
 
   const galleryRef = useRef(null)
-  
   // Filter out invalid images upfront
   const validImages = Array.isArray(images)
   ? images.filter(img => img && img.asset)
   : []
-
-  const [activeImage, setActiveImage] = useState(
-    isSanityImage(featuredImage)
-    ? featuredImage
-    : validImages[0] || null
-  )
 
   const imageCount = validImages.length
 
@@ -46,7 +39,11 @@ export default function GalleryCarousel({ featuredImage, images }) {
     document.removeEventListener('mousedown', handleClickOutside)
   }
   }, [featuredImage])
-
+    const [activeImage, setActiveImage] = useState(
+  isSanityImage(featuredImage)
+    ? featuredImage
+    : validImages[0] || null
+)
 const CustomLeftArrow = ({ onClick }) => (
   <button className="custom-arrow left" onClick={onClick} aria-label="Previous">
     ‹
@@ -77,15 +74,12 @@ const responsive = {
 
   return ( <>
   <div className="">
-   {isSanityImage(activeImage) && (
-  <Image
-    width={800}
-    height={500}
-    className="detail-image"
-    src={urlFor(activeImage).width(800).height(600).url()}
-    alt={activeImage.alt || ''}
-  />
-)}
+    <Image
+      width={800}
+      height={500}
+      className="detail-image"
+      src={urlFor(activeImage)}
+      alt={activeImage.alt || ''} />
   </div>
      {validImages.length > 0 && (
       <div className="gallery-wrapper"  ref={galleryRef}>
@@ -101,12 +95,12 @@ const responsive = {
         >
           {validImages?.map((img, i) => (
               <Image
-                src={urlFor(img).width(800).height(600).url()}
+                src={urlFor(img)}
                 alt={img.alt || ''}
                 loading="lazy"
                 height={150}
                 width={150}
-                onClick={() => isSanityImage(img) && setActiveImage(img)}
+                onClick={() => setActiveImage(img)}
                 className='thumbnail'
                 title={img.alt || 'Image from recipe steps'} />
           ))}
@@ -115,4 +109,3 @@ const responsive = {
     </>
   )
 }
-
