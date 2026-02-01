@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import Hero from "../../components/hero";
 import { client, urlFor, urlForOG } from "../../sanity/client";
@@ -36,7 +37,9 @@ export async function generateMetadata({ params }) {
   const query = `*[_type == "sauce" && slug.current == $slug][0]{
     seoTitle,
     seoDescription,
-    image
+    image {
+    asset->
+  }
   }`;
 
   const sauce = await client.fetch(query, { slug });

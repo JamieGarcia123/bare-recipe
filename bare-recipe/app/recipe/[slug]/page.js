@@ -1,3 +1,4 @@
+
 import Hero from '../../components/hero';
 import { client, urlFor, urlForOG } from '../../sanity/client';
 import Link from 'next/link';
@@ -11,6 +12,7 @@ import RandomCards from '../../components/randomCard';
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
+console.log('SLUG:', slug);
 
   const FALLBACK_IMAGE =
     'https://bare-recipe.com/blank-recipe.jpg';
@@ -36,7 +38,9 @@ export async function generateMetadata({ params }) {
   const query = `*[_type == "recipe" && slug.current == $slug][0]{
     seoTitle,
     seoDescription,
-    image
+    image {
+    asset->
+  }
   }`;
 
   const recipe = await client.fetch(query, { slug });
