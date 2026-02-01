@@ -1,5 +1,5 @@
 import Hero from '../../components/hero';
-import { client, urlFor } from '../../sanity/client';
+import { client, urlFor, urlForOG } from '../../sanity/client';
 import Link from 'next/link';
 import Image from 'next/image';
 import PrintButton from '../../components/button/printbutton.js';
