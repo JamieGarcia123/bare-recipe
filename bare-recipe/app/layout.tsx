@@ -15,8 +15,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta property="og:title" content="Bare Recipe | Easy Recipes Without the Annoying Ads" />
         <meta property="og:description" content="Cook without scrolling past pop-ups, videos, or life stories. Just clean, simple recipes." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://bare-recipe.com/" />
-        <meta property="og:image" content="https://bare-recipe.com/recipe-book-svg.svg" />
+        {/* <meta property="og:url" content="https://bare-recipe.com/" />
+        <meta property="og:image" content="https://bare-recipe.com/recipe-book-svg.svg" /> */}
         <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="icon" href="/favicon.ico" />
         <link
