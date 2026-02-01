@@ -177,7 +177,7 @@ export default async function Detail({ params }) {
                 >
                   <Image
                     src={sauce.imageUrl}
-                    alt={sauce?.title | 'sauce repice card'}
+                    alt={sauce?.title || 'sauce repice card'}
                     width={250}
                     height={250}
                     className="sauce-image"
