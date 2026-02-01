@@ -39,10 +39,10 @@ export async function generateMetadata({ params }) {
     image
   }`;
 
-  const sauce = await client.fetch(query, { slug });
+  const recipe = await client.fetch(query, { slug });
 
   const ogImage =
-    sauce?.image?.asset
+    recipe?.image?.asset
       ? urlForOG(recipe.image)
           .width(1200)
           .height(630)
@@ -65,7 +65,7 @@ export async function generateMetadata({ params }) {
       ],
     },
     alternates: {
-      canonical: `https://bare-recipe.com/sauce/${slug}/`,
+      canonical: `https://bare-recipe.com/recipe/${slug}/`,
     },
     robots: {
       index: true,
