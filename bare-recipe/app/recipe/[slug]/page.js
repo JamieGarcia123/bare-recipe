@@ -1,5 +1,4 @@
 import Hero from '../../components/hero';
-import Head from 'next/head';
 import { client, urlFor } from '../../sanity/client';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -9,6 +8,7 @@ import "./detail.css";
 import heroImage from "../../assets/images/emptykitchcounter.webp";
 import GalleryCarousel from '../../components/gallery/index.js';
 import RandomCards from '../../components/randomCard';
+
 export async function generateMetadata({ params }) {
   const {slug}  = await params;
   if (!slug) {
