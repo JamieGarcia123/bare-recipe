@@ -14,6 +14,11 @@ export function urlFor(source) {
   return builder.image(source).url();
 }
 
+
+export function urlForOG(source) {
+  return builder.image(source);
+}
+
 // export function urlForGallery(source) {
 //   return builder.image(source).url();
 // }

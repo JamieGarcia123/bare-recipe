@@ -10,77 +10,67 @@ import GalleryCarousel from '../../components/gallery/index.js';
 import RandomCards from '../../components/randomCard';
 
 export async function generateMetadata({ params }) {
-  const {slug}  = await params;
+  const { slug } = await params;
+
+  const FALLBACK_IMAGE =
+    'https://bare-recipe.com/blank-recipe.jpg';
+
   if (!slug) {
     return {
-      title: "Recipe Not Found | Bare Recipe",
-      description: "No recipe slug provided",
+      title: 'Recipe Not Found | Bare Recipe',
+      description: 'No recipe slug provided',
       openGraph: {
-        title: "Recipe Not Found | Bare Recipe",
-        description: "No recipe slug provided",
+        title: 'Recipe Not Found | Bare Recipe',
+        description: 'No recipe slug provided',
         images: [
-          { url: '/blank-recipe.jpg', 
-            width: 1200, 
-            height: 630 
-          }
+          {
+            url: FALLBACK_IMAGE,
+            width: 1200,
+            height: 630,
+          },
         ],
       },
-      alternates: {
-        canonical: `https://bare-recipe.com/recipe/${slug}/`,
-      },
-      robots: {
-        index: true,
-        follow: true,
-      },
     };
   }
+
   const query = `*[_type == "recipe" && slug.current == $slug][0]{
-    ...,
-    title,
-    image{
-      ...,
-      asset->
-    },
+    seoTitle,
+    seoDescription,
+    image
   }`;
 
-  const recipe = await client.fetch(query, { slug });
-  if (!recipe) {
-    return {
-      title: `Recipe Not Found | Bare Recipe`,
-      description: `Oops! This recipe does not exist.`,
-      openGraph: {
-        title: `Recipe Not Found | Bare Recipe`,
-        description: `Oops! This recipe does not exist.`,
-        images: [{ url: '/blank-recipe.jpg', width: 1200, height: 630 }],
-      },
-    };
-  }
+  const sauce = await client.fetch(query, { slug });
 
-  const imageUrl = recipe.image ? urlFor(recipe.image) : '/blank-recipe.jpg';
-  console.log('FEATURED IMAGE:', recipe.image)
+  const ogImage =
+    sauce?.image?.asset
+      ? urlForOG(recipe.image)
+          .width(1200)
+          .height(630)
+          .format('jpg')
+          .url()
+      : FALLBACK_IMAGE;
 
   return {
-    title: `${recipe.seoTitle}`,
-    description: `${recipe.seoDescription}`,
+    title: recipe?.seoTitle || 'Bare Recipe',
+    description: recipe?.seoDescription || 'Easy recipes without the annoying ads',
     openGraph: {
-      title: `${recipe.seoTitle}`,
-      description: `${recipe.seoDescription}`,
+      title: recipe?.seoTitle || 'Bare Recipe',
+      description: recipe?.seoDescription || 'Easy recipes without the annoying ads',
       images: [
         {
-          url: imageUrl,
+          url: ogImage,
           width: 1200,
           height: 630,
-          alt: recipe.seoTitle,
         },
       ],
-    },  
+    },
     alternates: {
-        canonical: `https://bare-recipe.com/recipe/${slug}/`,
-      },
-      robots: {
-        index: true,
-        follow: true,
-      },
+      canonical: `https://bare-recipe.com/sauce/${slug}/`,
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
   };
 }
 

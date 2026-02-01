@@ -172,7 +172,7 @@ button{
     }
     .filter-input-container{
         display: grid;
-        grid-template-columns: repeat(2, 2fr); /* 3 equal-width columns */
+        grid-template-columns: repeat(1, 2fr); /* 3 equal-width columns */
         gap: 4%;
         width: 90%;
     }

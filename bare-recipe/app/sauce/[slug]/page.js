@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Hero from "../../components/hero";
-import { client, urlFor } from "../../sanity/client";
+import { client, urlFor, urlForOG } from "../../sanity/client";
 import PrintButton from '../../components/button/printbutton.js'
 import detailImage from '../../assets/images/emptykitchcounter.webp'
 import { decimalToFraction } from '../../assets/helpers/helpers'
@@ -10,16 +10,25 @@ import RandomCards from '../../components/randomCard';
 
 // 2️⃣ Generate dynamic metadata for each recipe page
 export async function generateMetadata({ params }) {
-  const {slug}  = await params;
+  const { slug } = await params;
+
+  const FALLBACK_IMAGE =
+    'https://bare-recipe.com/blank-recipe.jpg';
 
   if (!slug) {
     return {
-      title: "Sauce Not Found | Bare Recipe",
-      description: "No sauce slug provided",
+      title: 'Sauce Not Found | Bare Recipe',
+      description: 'No sauce slug provided',
       openGraph: {
-        title: "Sauce Not Found | Bare Recipe",
-        description: "No Sauce slug provided",
-        images: [{ url: '/blank-recipe.jpg', width: 1200, height: 630 }],
+        title: 'Sauce Not Found | Bare Recipe',
+        description: 'No sauce slug provided',
+        images: [
+          {
+            url: FALLBACK_IMAGE,
+            width: 1200,
+            height: 630,
+          },
+        ],
       },
     };
   }
@@ -32,32 +41,27 @@ export async function generateMetadata({ params }) {
 
   const sauce = await client.fetch(query, { slug });
 
-  if (!sauce) {
-    return {
-      title: `Sauce Not Found | Bare Recipe`,
-      description: `Oops! This sauce does not exist.`,
-      openGraph: {
-        title: `Sauce Not Found | Bare Recipe`,
-        description: `Oops! This sauce does not exist.`,
-        images: [{ url: '/blank-recipe.jpg', width: 1200, height: 630 }],
-      },
-    };
-  }
-
-  const imageUrl = sauce.image ? urlFor(sauce.image) : '/blank-recipe.jpg';
+  const ogImage =
+    sauce?.image?.asset
+      ? urlForOG(sauce.image)
+          .width(1200)
+          .height(630)
+          .format('jpg')
+          .url()
+      : FALLBACK_IMAGE;
 
   return {
-    title: `${sauce.seoTitle}`,
-    description: `${sauce.seoDescription}`,
+    title: sauce?.seoTitle || 'Bare Recipe',
+    description: sauce?.seoDescription || 'Easy recipes without the annoying ads',
     openGraph: {
-      title: `${sauce.seoTitle}`,
-      description: `${sauce.seoDescription}`,
+      title: sauce?.seoTitle || 'Bare Recipe',
+      description: sauce?.seoDescription || 'Easy recipes without the annoying ads',
       images: [
         {
-          url: imageUrl,
+          url: ogImage,
           width: 1200,
           height: 630,
-        }
+        },
       ],
     },
     alternates: {
@@ -69,6 +73,7 @@ export async function generateMetadata({ params }) {
     },
   };
 }
+
 
 export async function generateStaticParams() {
   const query = `*[_type == "sauce"]{ "slug": slug.current }`;
