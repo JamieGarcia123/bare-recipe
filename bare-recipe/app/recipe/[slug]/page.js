@@ -35,9 +35,12 @@ export async function generateMetadata({ params }) {
     };
   }
   const query = `*[_type == "recipe" && slug.current == $slug][0]{
-    seoTitle,
-    seoDescription,
-    image
+    ...,
+    title,
+    image{
+      ...,
+      asset->
+    },
   }`;
 
   const recipe = await client.fetch(query, { slug });
@@ -54,6 +57,8 @@ export async function generateMetadata({ params }) {
   }
 
   const imageUrl = recipe.image ? urlFor(recipe.image) : '/blank-recipe.jpg';
+  console.log('FEATURED IMAGE:', recipe.image)
+
   return {
     title: `${recipe.seoTitle}`,
     description: `${recipe.seoDescription}`,
@@ -162,15 +167,17 @@ export default async function Detail({ params }) {
           <h3>Try This With</h3>
           <p>Sauces that pair well with this recipe! Look like a master chef with these combinations to complete your meal!</p>
           <div className="sauce-grid">
-            {recipe.goesWellWith.map((sauce) => (
-              <div key={sauce._id} className="sauce-card">
+            {recipe.goesWellWith.map((sauce, i) => (
+              <div 
+              key={sauce._id ?? `sauce-${i}`} 
+              className="sauce-card">
                 <Link
                   href={`/sauce/${sauce.slug}`}
                   className="sauce-link"
                 >
                   <Image
                     src={sauce.imageUrl}
-                    alt={sauce.title}
+                    alt={sauce?.title | 'sauce repice card'}
                     width={250}
                     height={250}
                     className="sauce-image"

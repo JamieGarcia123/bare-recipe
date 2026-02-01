@@ -5,6 +5,7 @@ export async function fetchRecipes() {
  ...,
     "slug": slug.current,
     
+    
   }`
 
   return await client.fetch(query);

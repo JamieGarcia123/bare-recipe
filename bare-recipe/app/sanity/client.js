@@ -13,3 +13,25 @@ const builder = createImageUrlBuilder(client)
 export function urlFor(source) {
   return builder.image(source).url();
 }
+
+// export function urlForGallery(source) {
+//   return builder.image(source).url();
+// }
+
+export function safeImageUrl(source) {
+  if (!source) return null;
+
+  // already a URL (defensive)
+  if (typeof source === 'string') return source;
+
+  // sanity image object
+  if (source.asset) {
+    try {
+      return builder.image(source).url();
+    } catch {
+      return null;
+    }
+  }
+
+  return null;
+}

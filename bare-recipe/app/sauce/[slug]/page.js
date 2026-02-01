@@ -83,8 +83,11 @@ export default async function SauceDetail({ params}) {
   const {slug}  = await params;  
         const query = `*[_type == "sauce" && slug.current == $slug][0]{
           ...,
-         
-             slug
+            slug,
+            image{
+            ...,
+            asset->
+          },
         }`;
        
   const sauce = await client.fetch(query, { slug });
