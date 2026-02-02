@@ -130,3 +130,9 @@ input:focus{
   border-color: var(--color-sage);
 }
 
+@media print {
+  h1,h2,h3,h4,h5{
+    font-family: ptags;
+    text-shadow: none;
+  }
+}

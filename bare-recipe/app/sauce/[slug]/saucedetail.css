@@ -85,5 +85,8 @@ ol li {
   .section-grid{
     padding-top: 200px;
   }
+  .detail-image{
+    margin-top: -200px;
+}
 
 }

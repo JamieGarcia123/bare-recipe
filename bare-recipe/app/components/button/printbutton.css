@@ -9,3 +9,10 @@
     letter-spacing: .8px;
     cursor: pointer;
 }
+
+@media print{
+    .printBtn{
+     display: none;
+    }
+}
+    

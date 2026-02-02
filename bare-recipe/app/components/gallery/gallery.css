@@ -36,7 +36,11 @@ img.detail-image{
 .gallery-wrapper {
   position: relative;
 }
-
+@media print {
+  .gallery-wrapper{
+    display: none;
+  }
+}
 .custom-arrow {
   position: absolute;
   top: 50%;
