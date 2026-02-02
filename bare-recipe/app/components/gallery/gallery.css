@@ -2,6 +2,33 @@
 .react-multi-carousel-list{
    position: initial; 
 }
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 32px;
+  color: #333;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.carousel-arrow-left {
+  left: -40px;
+}
+
+.carousel-arrow-right {
+  right: -40px;
+}
+
+.carousel-arrow:hover {
+  color: #000;
+}
+
+ .fa-circle-right, .fa-cricle-left{
+  font-size: 25px;
+ }
 .thumbnail{
     width: 150px;
     height: 150px;

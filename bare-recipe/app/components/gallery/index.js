@@ -17,18 +17,14 @@ const Carousel = dynamic(() => import('react-multi-carousel'), { ssr: false })
 export default function GalleryCarousel({ featuredImage, images }) {
 
   const galleryRef = useRef(null)
-  // Filter out invalid images upfront
 
-  // const validImages = Array.isArray(images)
-  // ? images.filter(img => img && img.asset)
-  // : []
   const validImages = [
     featuredImage,   // always push featured image first
     ...(Array.isArray(images) ? images : [])
   ];
 
 
-  const imageCount = validImages.length
+const imageCount = validImages.length
 const isMounted = useRef(false);
 
 useEffect(() => {
@@ -52,34 +48,33 @@ useEffect(() => {
   }
 }, [validImages]);
 
-  // useEffect(() => {
-  // function handleClickOutside(event) {
-  //   if (
-  //     galleryRef.current &&
-  //     !galleryRef.current.contains(event.target)
-  //   ) {
-  //     setActiveImage(
-  //       isSanityImage(featuredImage)
-  //         ? featuredImage
-  //         : validImages[0] || null
-  //     )    }
-  // }
-  // document.addEventListener('mousedown', handleClickOutside)
-  // return () => {
-  //   document.removeEventListener('mousedown', handleClickOutside)
-  // }
-  // }, [featuredImage])
-
-  // const [activeImage, setActiveImage] = useState(
-  //   isSanityImage(featuredImage)
-  //     ? featuredImage
-  //     : validImages[0] || null
-  // )
-// const [activeImage, setActiveImage] = useState(validImages[0] || null);
 const [activeImage, setActiveImage] = useState(featuredImage || images?.[0] || null)
 
 const imageSrc = safeImageUrl(activeImage);
 
+const CustomRightArrow = ({ onClick, ...rest }) => {
+  return (
+    <button
+      onClick={onClick}
+      aria-label="Next"
+      className="carousel-arrow carousel-arrow-right"
+    >
+      <i className="fa fa-circle-right" />
+    </button>
+  );
+};
+
+const CustomLeftArrow = ({ onClick, ...rest }) => {
+  return (
+    <button
+      onClick={onClick}
+      aria-label="Previous"
+      className="carousel-arrow carousel-arrow-left"
+    >
+      <i className="fa fa-circle-left" />
+    </button>
+  );
+};
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -119,6 +114,8 @@ const imageSrc = safeImageUrl(activeImage);
         <Carousel
           responsive={responsive}
           arrows
+          customRightArrow={<CustomRightArrow />}
+          customLeftArrow={<CustomLeftArrow />}
           keyBoardControl
           showDots
           containerClass="carousel-container"
