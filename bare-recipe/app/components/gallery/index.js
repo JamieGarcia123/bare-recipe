@@ -109,7 +109,7 @@ const CustomLeftArrow = ({ onClick, ...rest }) => {
       />
     )}
   </div>
-     {validImages.length > 0 && (
+     {validImages.length > 1 && (
       <div className="gallery-wrapper"  ref={galleryRef}>
         <Carousel
           responsive={responsive}
