@@ -90,9 +90,18 @@ export default async function Detail({ params }) {
   const {slug}  = await params;
 
   const query = `*[_type == "recipe" && slug.current == $slug][0]{
-    ...,     
-    slug
-    }`;
+    ...,
+    slug,
+    goesWellWith[]->{
+      _id,
+      title,
+      slug,
+       image{
+            ...,
+            asset->
+          },
+    }
+  }`;
 
   const recipe = await client.fetch(query, { slug });
   if (!recipe) {
@@ -166,11 +175,11 @@ export default async function Detail({ params }) {
               key={sauce._id ?? `sauce-${i}`} 
               className="sauce-card">
                 <Link
-                  href={`/sauce/${sauce.slug}`}
+                  href={`/sauce/${sauce.slug?.current}`}
                   className="sauce-link"
                 >
                   <Image
-                    src={sauce.imageUrl}
+                    src={urlFor(sauce.image)}
                     alt={sauce?.title || 'sauce repice card'}
                     width={250}
                     height={250}

@@ -152,6 +152,7 @@ export default {
   },
 },
 
+
     {
       name: 'isGlutenFree',
       title: 'Gluten Free',
