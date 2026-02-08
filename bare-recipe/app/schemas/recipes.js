@@ -144,6 +144,9 @@ export default {
       { title: 'Kid Friendly', value: 'Kid Friendly' },
       { title: 'Beginner', value: 'Beginner' },
       { title: 'Experienced Cook', value: 'Experienced Cook' },
+      { title: 'Keto Friendly', value: 'Keto Friendly' },
+      { title: 'Side Dish', value: 'Side Dish' },
+
     ],
     layout: 'checkbox', // ← checkbox layout goes here
   },
