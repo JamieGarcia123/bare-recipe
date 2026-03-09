@@ -7,7 +7,7 @@ import styles from './headernav.module.css'
 function HeaderNav() {
  
  const navCategories = {
-  'beginner-cook': 'Beginner',
+  'beginner': 'Beginner',
   'sweet-treat': 'Sweets',
 };
 

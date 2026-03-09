@@ -5,7 +5,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  display: grid;
   background-color: var(--color-linen);
   color: var(--color-charcoal);
   line-height: 1.1;
@@ -33,7 +32,9 @@ main{
   --color-clay: #B96A55;            /* deeper terracotta */
   --color-honey: #E1B75A;           /* softer than turmeric */
   --color-apricot: #F1C1A3;         /* subtle highlight or badge */
-
+  --color-clay-background: #B96A5550;
+  --color-turmeric-background: #D9A44140;
+  
 }
 
 /* font family */
