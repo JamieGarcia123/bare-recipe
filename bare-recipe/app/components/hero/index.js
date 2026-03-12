@@ -7,11 +7,17 @@ import styles from './hero.module.css'
         <Image
         src={imageUrl.src}
         alt="Header image for background of page"
-        fill
+        width={1920}
+        height={780}
+        style={{
+            width: "100dvw",
+            height: "100dvh",
+            objectFit: "cover"
+        }}
         priority={true}  
         className={styles.heroBgImg}
         />
-            {showTitle ? <div className={styles.grid1Col}>
+        {showTitle ? <div className={styles.grid1Col}>
                 <h1>
                   {title}
                 </h1>

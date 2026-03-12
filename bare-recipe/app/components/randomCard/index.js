@@ -38,13 +38,14 @@ function RandomCards() {
      <div className={styles.randomMidGrid}>
       {randomRecipes.map((recipe) => (
         <div key={recipe._id} className={styles.randomCard}>
-          <Link href={`/recipe/${recipe.slug}`} className={styles.rahdomLink}>
+          <Link href={`/recipe/${recipe.slug}`} className={styles.randomLink}>
           <Image
             src={urlFor(recipe.image)}
             alt={recipe.title}
             width={250}
             height={250}
             loading="lazy"
+            id={"randomImage"}
             className={styles.randomImage}
           />
             <h4>{recipe.title}</h4>

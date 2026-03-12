@@ -13,13 +13,11 @@ i {
 .fa-times, .fa-filter, .fa-cutlery, .fa-clock-o, .fa-users, .fa-list-ol, .fa-shopping-bag, .fa-mobile, .fa-clock, .fa-share,  .fa-facebook-f
 , .fa-book, .fa-certificate {
   display: contents;
-  color: var(--color-linen);
+  color: var(--color-sage);
   font-size: 1rem;
   height: 20px;
   width: 20px;
-  background-color: var(--color-sage);
   padding: 10px;
-  border-radius: 25px;
   display: flex;
   text-align: center;
   align-content: center;

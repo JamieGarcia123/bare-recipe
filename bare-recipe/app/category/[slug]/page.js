@@ -7,7 +7,7 @@ import heroUrl from '../../assets/images/blank-recipe.webp';
 import './category.css';
  
 const categoryMap = {
-  'beginner-cook': 'Beginner Cook',
+  'beginner': 'Beginner',
   'sweet-treat': "Sweet Treat",
 };
 
