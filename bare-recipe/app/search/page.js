@@ -103,7 +103,8 @@ function Search() {
         <meta property="og:description" content="Find recipes by searching ingredients you have, filter by category, or just browse around! " />
         <meta name="description" content="Find recipes by searching ingredients you have, filter by category, or just browse around! " />
       </Head>
-      <Hero imageUrl={heroUrl} showTitle={true} title={"Let's EAT!"} />
+      <Hero imageUrl={heroUrl} showTitle={true} title={"Let's EAT!"}  subText="Enter ingredients you may have on hand or want to use more and we will load recipes relevant to those! Not sure what to search click on a category and find some inspiration!!"
+ />
 
       <section className="search-input-container">
         <label>

@@ -67,7 +67,7 @@ function RoledexCard() {
               className={`${styles.recipeCard} ${getCardPosition(index)}`}
             >
               <Link
-                href={`/recipe/${recipe.slug.current}`}
+                href={`/recipe/${recipe.slug}`}
                 className={styles.randomLink}
               >
                 <div className={styles.imageWrap}>
@@ -90,7 +90,8 @@ function RoledexCard() {
 
         <button
           onClick={nextCard}
-className={`${styles.navBtn} ${styles.right}`}          aria-label="Next recipe"
+          className={`${styles.navBtn} ${styles.right}`}          
+          aria-label="Next recipe"
         >
           <span className='fa fa-chevron-right'></span>
         </button>
