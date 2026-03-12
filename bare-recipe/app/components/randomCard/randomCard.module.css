@@ -27,7 +27,7 @@
   transform: translateY(-5px);
 }
 
-.randomImage {
+img.randomImage {
   width: 100%;
   max-width: 250px;
   height: 150px;

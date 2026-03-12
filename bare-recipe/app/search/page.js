@@ -99,11 +99,11 @@ function Search() {
       <Head>
         <meta name="keywords" content="find recipes, leftover ingredient recipes, recipe finder, easy recipe, kid friendly recipes, simple recipes, search recipes by ingredients" />       
         <meta property="og:image" content={ogImageUrl} />
-        <meta property="title" content="Recipe Search - Find Recipes by Ingredients"/>
+        <meta property="title" content="Recipe Search - Find Recipes by Ingredients or Category"/>
         <meta property="og:description" content="Find recipes by searching ingredients you have, filter by category, or just browse around! " />
         <meta name="description" content="Find recipes by searching ingredients you have, filter by category, or just browse around! " />
       </Head>
-      <Hero imageUrl={heroUrl} title={"Let's EAT!"} />
+      <Hero imageUrl={heroUrl} showTitle={true} title={"Let's EAT!"} />
 
       <section className="search-input-container">
         <label>

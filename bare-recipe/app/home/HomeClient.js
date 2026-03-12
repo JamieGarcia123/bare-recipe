@@ -6,7 +6,7 @@ import Image from "next/image";
 import wonderingImg from "../assets/images/ponderingwhattoeat.webp";
 import sauteeing from "../assets/images/girl-sauteeing.webp";
 import "./home.css";
-import RandomCards from "../components/randomCard";
+import RoledexCard from "../components/roledexCard";
 
 function HomeClient() {
   return (
@@ -39,7 +39,7 @@ function HomeClient() {
           <div className="container-new">
             <div className="col-large">
                   {/* <Image src={wonderingImg} className="" alt="" height={300} width={500}/> */}
-              <RandomCards/>
+              <RoledexCard/>
             </div>
             <div className="col-large">
                 <h2 className="">What Makes Us Different</h2>

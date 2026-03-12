@@ -28,9 +28,7 @@
   color: var(--color-white);
 }
 @media screen and (max-width:  786px) {
-  .heroBg{
-    max-height: 425px;
-  }
+  
   
 }
 @media print {
