@@ -120,7 +120,7 @@ export default async function SauceDetail({ params}) {
           height={400} 
           alt={sauce.title} 
           src={urlFor(sauce.image)}/>
-          <h1>{sauce.title}</h1>
+          <h1 className='sauceTitle'>{sauce.title}</h1>
           <h2>{sauce.snippet}</h2>
           <PrintButton/>
         </div>
