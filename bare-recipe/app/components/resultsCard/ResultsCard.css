@@ -95,8 +95,8 @@ background-color: var(--color-sage);
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  line-height: 1.4em;        /* set a consistent line height */
-  max-height: calc(1.4em * 2); /* 2 lines × line-height */
+  line-height: 1.1em;        /* set a consistent line height */
+  max-height: calc(1.1em * 2); /* 2 lines × line-height */
 }
 
 .ingredient-ul{
@@ -110,6 +110,7 @@ background-color: var(--color-sage);
 }
 h3#cardName{
     text-transform: capitalize;
+    margin: 0px;
 }
 #viewmore{
     background-color: var(--color-terracotta);
