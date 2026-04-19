@@ -11,7 +11,7 @@ import styles from './hero.module.css'
         height={780}
         style={{
             width: "100dvw",
-            height: "80dvh",
+            height: "75dvh",
             objectFit: "cover"
         }}
         priority={true}  

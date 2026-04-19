@@ -123,7 +123,7 @@ export default async function Detail({ params }) {
         <div className="sectionCol1">
             <GalleryCarousel  featuredImage={urlFor(recipe.image)}
             images={recipe.gallery} /> 
-          <h1 className='recipeTitle'>{recipe.title}</h1>
+          <div className='titleWrapper'><h1 className='recipeTitle'>{recipe.title}</h1></div>
           <h2>{recipe.snippet}</h2>
           <PrintButton/>
         </div>
