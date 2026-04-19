@@ -35,7 +35,7 @@
 } */
 
 .card-container img{
-    width: 80%;
+    width: 85%;
     margin: auto;
     object-fit: cover;
     height: 175px;
@@ -87,7 +87,7 @@ background-color: var(--color-sage);
     margin: 0px auto;
     height: 200px;
     display: grid;
-    align-content: space-around;
+    align-content: baseline;
 }
 .card-description{
   display: -webkit-box;
@@ -116,6 +116,7 @@ h3#cardName{
     border: none;
     border-radius: 12px;
     padding: 10px 8px;
+    margin-top: 20px;
 }
 
 @media screen and (max-width: 1080px) {

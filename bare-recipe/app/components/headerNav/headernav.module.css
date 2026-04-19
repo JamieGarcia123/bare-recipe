@@ -34,7 +34,7 @@
 
  .desktopOnly a {
     height: 30px;
-    width: 100px;
+    padding: 2px 10px;
     background-color: var(--color-turmeric);
     display: flex;
     justify-content: center;

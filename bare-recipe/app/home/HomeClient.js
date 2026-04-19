@@ -7,6 +7,7 @@ import wonderingImg from "../assets/images/ponderingwhattoeat.webp";
 import sauteeing from "../assets/images/girl-sauteeing.webp";
 import "./home.css";
 import RoledexCard from "../components/roledexCard";
+import Link from "next/link";
 
 function HomeClient() {
   return (
@@ -15,7 +16,7 @@ function HomeClient() {
         title="Bare Recipe"
         imageUrl={spices}
         showTitle={true}
-        subText="Bare Recipe is built for people who just want clear, simple recipes without ads, popups, or life stories. We focus on fast, readable instructions so you can start cooking immediately…"
+        subText="Bare Recipe has easy beginner recipes for people who just want clear, simple recipes without ads, popups, or life stories. We focus on fast, readable instructions so you can start cooking immediately…"
       />
       <section className="">
         <div className="wrapper">
@@ -26,7 +27,7 @@ function HomeClient() {
                 <li><i className="fa fa-list-ol"></i>Clear ingredients & steps - no fluff, no distractions.</li>
                 <li><i className="fa fa-filter"></i>Easy filtering by category, skill level, and type.</li>
                 <li><i className="fa fa-share"></i>Simple sharing - share a recipe without sending an essay.</li>
-                <li><i className="fa fa-certificate"></i>Beginner-friendly recipes alongside more advance options.</li>
+                <li><i className="fa fa-certificate"></i><Link href="/category/beginner-recipes">Beginner-friendly recipes</Link> alongside more advance options.</li>
               </ul>
             </div>
             <div className="col-large">

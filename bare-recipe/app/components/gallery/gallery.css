@@ -45,7 +45,7 @@ img.detail-image{
 .detail-image{
     margin: auto;
     z-index: 5;
-    margin-top: -350px;
+    margin-top: -400px;
     height: 450px;
     width: 800px;
 }
