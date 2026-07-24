@@ -34,7 +34,7 @@ function HeaderNav() {
             <Link key={slug} href={`/category/${slug}`}>
               {label}
             </Link>
-          ))} <Link className={styles.search} href="/search"><i class="fa fa-search"></i></Link></div>       
+          ))} <Link className={styles.search} href="/search"><i className="fa fa-search"></i></Link></div>       
           </nav>
       </div>
     </div>
