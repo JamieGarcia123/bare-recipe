@@ -29,12 +29,12 @@ function HeaderNav() {
 
         <nav className={styles.row}>  
           <div className={styles.mobileOnly}><MobileNav navCategories={navCategories}/></div>
-         <div className={styles.desktopOnly}><Link href="/search">Search</Link>
+          <div className={styles.desktopOnly} >
           {Object.entries(navCategories).map(([slug, label]) => (
             <Link key={slug} href={`/category/${slug}`}>
               {label}
             </Link>
-          ))}  </div>       
+          ))} <Link className={styles.search} href="/search"><i class="fa fa-search"></i></Link></div>       
           </nav>
       </div>
     </div>
