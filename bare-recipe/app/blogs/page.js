@@ -81,7 +81,7 @@ function Blog() {
         <meta property="og:description" content="Find recipes by searching ingredients you have, filter by category, or just browse around! " />
         <meta name="description" content="Find recipes by searching ingredients you have, filter by category, or just browse around! " />
       </Head>
-      <Hero imageUrl={heroUrl} showTitle={true} title={"Let's EAT!"}  subText="Enter ingredients you may have on hand or want to use more and we will load recipes relevant to those! Not sure what to search click on a category and find some inspiration!!"
+      <Hero imageUrl={heroUrl} showTitle={true} title={"Cooking doesnt have to be complicated"}  subText="Sit back and relax. Got a few groceries left? Dont know why you bought those mushrooms? Bare-Recipe is here to help! Find our tips and guides to help you master the kitchen your way."
  />
 
      
