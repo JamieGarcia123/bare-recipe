@@ -122,7 +122,7 @@ h3#cardName{
 
 @media screen and (max-width: 1080px) {
     .card-container{
-        width: 350px;
+        width: 300px;
     }
     
 }

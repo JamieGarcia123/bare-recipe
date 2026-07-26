@@ -19,7 +19,7 @@ export default function MobileNav({ navCategories }) {
       {/* Mobile toggle button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={styles.mobileMenuBtn}
+        className={styles.hamburger}
       >
         {isOpen ? "X" : "☰"}
       </button>

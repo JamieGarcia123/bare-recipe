@@ -24,21 +24,22 @@
 
 @media screen and (max-width: 1080px) {
    .sectionGrid{
-    width: 80%;
+    width: 90%;
    }  
       img.detailImage{
     height: 325px;
+    width: 300px;
    }
 }
 @media screen and (max-width: 786px) {
    .sectionGrid{
-    width: 80%;
+    width: 90%;
    }  
       img.detailImage{
     height: 275px;
     }
     .detailImage{
-      margin-top: -165px;
+      margin-top: --90px;
     }
     
     .sauce-grid{
