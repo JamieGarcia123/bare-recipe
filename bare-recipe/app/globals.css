@@ -132,6 +132,17 @@ button{
 input:focus{
   border-color: var(--color-sage);
 }
+@media screen and (max-width: 787px) {
+  h1{
+    font-size: 1.75em;
+    text-shadow: none;
+  }
+  h2{
+    font-size: 1.5em;
+    text-shadow: none;
+  }
+  
+}
 
 @media print {
   h1,h2,h3,h4,h5{

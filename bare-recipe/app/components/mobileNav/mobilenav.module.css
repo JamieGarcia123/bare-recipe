@@ -2,17 +2,30 @@
     position: relative;
     flex-direction: row-reverse;
 }
-.mobileMenuBtn{
+.hamburger{
     height: 30px;
-    width: 150px;
-    background-color: var(--color-turmeric);
+    width: 50px;
+    background-color: var(--color-apricot);
     display: flex;
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
     border-radius: 6px;
     border: none;
-    box-shadow: 1px 5px 0px var(--color-terracotta);
+    /* box-shadow: 1px 5px 0px var(--color-terracotta); */
+}
+
+.mobileMenuBtn{
+    height: 30px;
+    width: 150px;
+    background-color: var(--color-apricot);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    border-radius: 6px;
+    border: none;
+    /* box-shadow: 1px 5px 0px var(--color-terracotta); */
 }
 
 .mobileDropDown {
@@ -35,8 +48,7 @@
     display: grid;
     justify-content: center;
     align-content: space-around;
-    right: 0px;
-    border-radius: .5rem;
+    right: -32px;
 }
 
 /* Desktop rules */
