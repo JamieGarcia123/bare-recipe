@@ -29,7 +29,9 @@ function HeaderNav() {
 
         <nav className={styles.row}>  
           <div className={styles.mobileOnly}><MobileNav navCategories={navCategories}/></div>
-          <div className={styles.desktopOnly} >
+          <div className={styles.desktopOnly} >  <Link href={`/blogs`}>
+              Blog
+            </Link>
           {Object.entries(navCategories).map(([slug, label]) => (
             <Link key={slug} href={`/category/${slug}`}>
               {label}

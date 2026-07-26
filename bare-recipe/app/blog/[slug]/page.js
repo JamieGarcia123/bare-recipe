@@ -2,6 +2,7 @@
 import Hero from '../../components/hero';
 import { client, urlFor, urlForOG } from '../../sanity/client';
 import { PortableText } from "@portabletext/react";
+import Image from 'next/image';
 
 import Link from 'next/link';
 import styles from "./blogDetail.module.css"; 
@@ -102,20 +103,25 @@ export default async function Detail({ params }) {
 
   return (
     <>
-      <Hero
+      {/* <Hero
         title={blog.title}
         imageUrl={heroImage}
         showTitle={false}
-      />
-      <section className="section-grid">
-        <div className="sectionCol1">
-          <div className='titleWrapper'><h1 className='recipeTitle'>{blog.title}</h1></div>
-          <h2>{blog.snippet}</h2>
-        </div>
-              <PortableText value={blog.content} />
-
+      /> */}
+      <section className={styles.sectionGrid}>
         
-      
+            <Image 
+                className={styles.detailImage} 
+                width={1200} 
+                height={700} 
+                alt={blog.title} 
+                src={urlFor(blog.image)}/>
+          <div className={styles.sectionCol1}>
+          <div className='titleWrapper'>
+            <h1 className='recipeTitle'>{blog.title}</h1>
+          </div>
+        </div>
+        <PortableText value={blog.content} />      
       </section>
       </>
   )

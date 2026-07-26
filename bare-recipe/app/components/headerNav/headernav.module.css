@@ -28,7 +28,7 @@
  .row {
     display: flex;
     justify-content: space-evenly;
-    max-width: 450px;
+    max-width: 500px;
     width: 100%;
 }
 
