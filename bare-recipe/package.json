@@ -13,11 +13,12 @@
     "node": "18.x"
   },
   "dependencies": {
+    "@portabletext/react": "^7.0.1",
     "@sanity/image-url": "^2.0.2",
     "@sanity/vision": "^3.99.0",
     "next": "16.0.10",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
     "react-multi-carousel": "^2.8.6",
     "sanity": "^3.40.0",
     "styled-components": "^6.1.19"

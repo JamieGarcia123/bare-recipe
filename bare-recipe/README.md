@@ -13,6 +13,12 @@ pnpm dev
 # or
 bun dev
 ```
+Sanity IO Commands
+
+sanity dev
+sanity deploy 
+
+run from terminal in schema folder
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 

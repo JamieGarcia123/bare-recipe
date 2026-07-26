@@ -1,8 +1,9 @@
 import { defineConfig } from 'sanity'
 import recipe from './recipes'
 import sauce from './sauce'
+import cookingTips from './cookingTips'
 
-export const schemaTypes = [recipe, sauce]
+export const schemaTypes = [recipe, sauce, cookingTips]
 
 
 export default defineConfig({

@@ -28,20 +28,36 @@
  .row {
     display: flex;
     justify-content: space-evenly;
-    max-width: 450px;
+    max-width: 500px;
     width: 100%;
 }
 
- .desktopOnly a {
+ .desktopOnly a:not(.search) {
     height: 30px;
     padding: 2px 10px;
-    background-color: var(--color-turmeric);
+    background-color: var(--color-apricot);
     display: flex;
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
     border-radius: 6px;
-    box-shadow: 1px 5px 0px var(--color-terracotta);
+    letter-spacing: 1.1;
+    color: var(--color-black);
+    /* box-shadow: 1px 5px 0px var(--color-terracotta); */
+}
+a.search {
+    height: 30px;
+    font-size: 30px;
+    padding: 2px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    color: var(--color-black);
+}
+
+.desktopOnly a:not(.search):hover{
+  text-decoration: underline;
 }
 .mobileOnly {
   display: block;

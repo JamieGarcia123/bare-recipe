@@ -34,11 +34,21 @@ body h1{
     width: 100dvw;
     padding: 40px 20px;
     justify-content: center;
-    background-color: var(--color-clay-background);
+    /* background-color: var(--color-clay-background); */
+     background: linear-gradient(to top, 
+     var(--color-linen)0%,
+     var(--color-clay-background) 20%,  
+      var(--color-clay-background) 80%,    
+      var(--color-linen) 100%   );
     display: flex;
 }
 .wrapper:nth-child(odd){
-    background-color: var(--color-turmeric-background);
+    /* background-color: var(--color-turmeric-background); */
+      background: linear-gradient(to top, 
+     var(--color-linen)0%,
+      var(--color-turmeric-background) 20%,
+      var(--color-turmeric-background) 80%,    
+      var(--color-linen) 100%   );
 }
 .wrapper .container-new {
     width: 100%;
@@ -55,7 +65,7 @@ body h1{
 
 .col-large img:not(#randomImage){
     border-radius: 12px;
-    box-shadow: 20px 25px 20px #00000040;
+    box-shadow: 15px 20px 15px #00000070;
 }
 
 
