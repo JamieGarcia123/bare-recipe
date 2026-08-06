@@ -28,7 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
 
- 
+ <script src="https://analytics.ahrefs.com/analytics.js" data-key="uA1pEQz3/YmdjjQNL2S+9Q" async></script>
       </head>
       <body>
         <HeaderNav />
