@@ -22,14 +22,14 @@ export default async function sitemap() {
   `);
 
   const recipeUrls = recipes.map((item) => ({
-    url: `https://www.bare-recipe.com/recipe/${item.slug.current}`,
+    url: `https://bare-recipe.com/recipe/${item.slug.current}`,
     lastModified: item._updatedAt,
     changeFrequency: "weekly",
     priority: 0.8,
   }));
 
   const sauceUrls = sauces.map((item) => ({
-    url: `https://www.bare-recipe.com/sauce/${item.slug.current}`,
+    url: `https://bare-recipe.com/sauce/${item.slug.current}`,
     lastModified: item._updatedAt,
     changeFrequency: "weekly",
     priority: 0.7,
@@ -37,17 +37,17 @@ export default async function sitemap() {
 
   return [
     {
-      url: "https://www.bare-recipe.com",
+      url: "https://bare-recipe.com",
       changeFrequency: "weekly",
       priority: 1,
     },
     {
-      url: "https://www.bare-recipe.com/recipes",
+      url: "https://bare-recipe.com/recipes",
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
-      url: "https://www.bare-recipe.com/sauces",
+      url: "https://bare-recipe.com/sauces",
       changeFrequency: "weekly",
       priority: 0.9,
     },
