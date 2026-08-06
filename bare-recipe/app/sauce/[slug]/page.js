@@ -56,6 +56,7 @@ export async function generateMetadata({ params }) {
   return {
     title: sauce?.seoTitle || 'Bare Recipe',
     description: sauce?.seoDescription || 'Easy recipes without the annoying ads',
+      url: `https://bare-recipe.com/sauce/${slug}/`,
     openGraph: {
       title: sauce?.seoTitle || 'Bare Recipe',
       description: sauce?.seoDescription || 'Easy recipes without the annoying ads',

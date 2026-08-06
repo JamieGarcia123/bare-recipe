@@ -51,6 +51,7 @@ export async function generateMetadata({ params }) {
   return {
     title: `${category.seoTitle} | Bare Recipe`,
     description: category.seoDescription,
+      url: `https://bare-recipe.com/category/${slug}/`,
     openGraph: {
       title: `${category.seoTitle} | Bare Recipe`,
       description: category.seoDescription,

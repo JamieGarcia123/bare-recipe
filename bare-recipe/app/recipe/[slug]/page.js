@@ -57,6 +57,7 @@ console.log('SLUG:', slug);
   return {
     title: recipe?.seoTitle || 'Bare Recipe',
     description: recipe?.seoDescription || 'Easy recipes without the annoying ads',
+    url: `https://bare-recipe.com/recipe/${slug}/`,
     openGraph: {
       title: recipe?.seoTitle || 'Bare Recipe',
       description: recipe?.seoDescription || 'Easy recipes without the annoying ads',
