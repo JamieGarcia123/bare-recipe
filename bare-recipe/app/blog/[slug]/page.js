@@ -113,15 +113,15 @@ export default async function Detail({ params }) {
             <Image 
                 className={styles.detailImage} 
                 width={1200} 
-                height={700} 
+                height={500} 
                 alt={blog.title} 
                 src={urlFor(blog.image)}/>
           <div className={styles.sectionCol1}>
-          <div className='titleWrapper'>
-            <h1 className='recipeTitle'>{blog.title}</h1>
+          <div className={styles.titleWrapper}>
+            <h1 className={styles.blogTitle}>{blog.title}</h1>
           </div>
         </div>
-        <PortableText value={blog.content} />      
+        <PortableText id="blog" value={blog.content} />      
       </section>
       </>
   )

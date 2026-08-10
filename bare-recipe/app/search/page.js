@@ -11,6 +11,8 @@ import Card from '../components/resultsCard';
 import heroUrl from '../assets/images/slate-herbs-bg.webp';
 import './Search.css';
 import ogImageUrl from '../assets/images/fridgefoods2.webp'
+
+
 function Search() {
   const [query, setQuery] = useState('');
   const [recipes, setRecipes] = useState([]);
@@ -21,6 +23,8 @@ function Search() {
   const [activeCat, setActiveCat] = useState(null);
   const [loading, setLoading] = useState(true);
 
+
+   
   // Fetch recipes & sauces once
   useEffect(() => {
     const loadData = async () => {
