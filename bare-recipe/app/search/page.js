@@ -1,8 +1,8 @@
 import SearchClient from "./SearchClient"
+
 export async function generateMetadata() {
 
-  const FALLBACK_IMAGE =
-    'https://bare-recipe.com/blank-recipe.jpg';
+  const FALLBACK_IMAGE = 'https://bare-recipe.com/blank-recipe.jpg';
 
 
   const ogImage = FALLBACK_IMAGE;
@@ -22,7 +22,7 @@ export async function generateMetadata() {
       ],
     },
     alternates: {
-      canonical: `https://bare-recipe.com/search/`,
+      canonical: 'https://bare-recipe.com/search/',
     },
     robots: {
       index: true,

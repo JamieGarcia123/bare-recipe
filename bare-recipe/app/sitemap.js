@@ -21,6 +21,14 @@ export default async function sitemap() {
     }
   `);
 
+    // Fetch sauces
+  const blogs = await client.fetch(`
+    *[_type == "cookingTips"]{
+      slug,
+      _updatedAt
+    }
+  `);
+
   const recipeUrls = recipes.map((item) => ({
     url: `https://bare-recipe.com/recipe/${item.slug.current}`,
     lastModified: item._updatedAt,
