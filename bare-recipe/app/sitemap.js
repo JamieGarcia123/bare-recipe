@@ -34,6 +34,12 @@ export default async function sitemap() {
     changeFrequency: "weekly",
     priority: 0.7,
   }));
+    const blogUrls = blogs.map((item) => ({
+    url: `https://bare-recipe.com/blog/${item.slug.current}`,
+    lastModified: item._updatedAt,
+    changeFrequency: "weekly",
+    priority: 0.9,
+  }));
 
   return [
     {
@@ -41,17 +47,8 @@ export default async function sitemap() {
       changeFrequency: "weekly",
       priority: 1,
     },
-    {
-      url: "https://bare-recipe.com/recipes",
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: "https://bare-recipe.com/sauces",
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
     ...recipeUrls,
     ...sauceUrls,
+    ...blogUrls
   ];
 }
