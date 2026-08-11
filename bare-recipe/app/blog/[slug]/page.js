@@ -121,7 +121,7 @@ export default async function Detail({ params }) {
             <h1 className={styles.blogTitle}>{blog.title}</h1>
           </div>
         </div>
-        <PortableText id="blog" value={blog.content} />      
+        <PortableText value={blog.content} />      
       </section>
       </>
   )
