@@ -7,7 +7,7 @@ export async function generateMetadata() {
   const ogImage = FALLBACK_IMAGE;
 
   return {
-    title: 'Bare Recipe',
+    title: 'Bare Recipe - No ads, No nonsense recipe search site!',
     description: 'Easy recipes for you or your family without the annoying ads, frills, stories.',
     openGraph: {
       title: 'Bare Recipe',
@@ -29,6 +29,6 @@ export async function generateMetadata() {
     },
   };
 }
-export default function Page() {
+export default function Home() {
   return <HomeClient/>
 }

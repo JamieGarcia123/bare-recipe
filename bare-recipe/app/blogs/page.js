@@ -1,4 +1,4 @@
-import BlogClient from "./BlogClientClient"
+import BlogClient from "./BlogClient"
 
 export async function generateMetadata() {
 
@@ -29,6 +29,6 @@ export async function generateMetadata() {
     },
   };
 }
-export default function Page() {
+export default function Blogs() {
   return <BlogClient/>
 }
