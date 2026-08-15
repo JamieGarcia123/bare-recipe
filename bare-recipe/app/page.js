@@ -1,7 +1,34 @@
-import Home from './home/page.js'
+import HomeClient from "./home/HomeClient"
 
-export default function page(){
-  return (
-    <Home/>
-  )
+export async function generateMetadata() {
+
+  const FALLBACK_IMAGE ='https://bare-recipe.com/blank-recipe.jpg';
+
+  const ogImage = FALLBACK_IMAGE;
+
+  return {
+    title: 'Bare Recipe - No ads, No nonsense recipe search site!',
+    description: 'Easy recipes for you or your family without the annoying ads, frills, stories.',
+    openGraph: {
+      title: 'Bare Recipe',
+      description: 'Easy recipes for you or your family without the annoying ads, frills, stories.',
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+    alternates: {
+      canonical: 'https://bare-recipe.com/',
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+  };
+}
+export default function Home() {
+  return <HomeClient/>
 }
