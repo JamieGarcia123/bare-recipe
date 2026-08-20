@@ -1,5 +1,9 @@
-:HL["/_next/static/chunks/61c8f43ece1a84fb.css","style"]
+:HL["/_next/static/chunks/4651d46bf72cbe87.css","style"]
 :HC["/",""]
-:HL["/_next/static/chunks/7e29472eeb1a73f7.css","style"]
-:HL["/_next/static/chunks/14dacb77ce08c2e3.css","style"]
-0:{"buildId":"n89nn9GMbVelAAir4zUns","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"sauce","paramType":null,"paramKey":"sauce","hasRuntimePrefetch":false,"slots":{"children":{"name":"slug","paramType":"d","paramKey":"jalepeno-yogurt-sauce","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+:HL["/_next/static/chunks/43e6a87089456238.css","style"]
+:HL["/_next/static/chunks/d8fff3f862a2c39d.css","style"]
+:HL["/_next/static/chunks/160b4a6fb10fcafa.css","style"]
+:HL["/_next/static/chunks/a27b0946d466734f.css","style"]
+:HL["https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css","style"]
+:HL["https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css","style"]
+0:{"buildId":"R3ivn4HHWjk_kq55o3Smo","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"sauce","paramType":null,"paramKey":"sauce","hasRuntimePrefetch":false,"slots":{"children":{"name":"slug","paramType":"d","paramKey":"jalepeno-yogurt-sauce","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

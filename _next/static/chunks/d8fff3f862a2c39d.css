@@ -1,0 +1,1 @@
+.printBtn{background-color:var(--color-terracotta);width:150px;height:40px;-webkit-backface-visibility:none;text-transform:uppercase;letter-spacing:.8px;cursor:pointer;border:none;border-radius:12px}@media print{.printBtn{display:none}}
