@@ -12,8 +12,6 @@ import RandomCards from '../../components/randomCard';
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-console.log('SLUG:', slug);
-
   const FALLBACK_IMAGE =
     'https://bare-recipe.com/blank-recipe.jpg';
 
@@ -112,9 +110,44 @@ export default async function Detail({ params }) {
       </p>
     );
   }
-
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  name: recipe.title,
+  image: recipe.image ? [urlFor(recipe.image).url()] : [],
+  description: recipe.snippet || "",
+  author: {
+    "@type": "Organization",
+    name: "Bare Recipe",
+  },
+  prepTime: recipe.prepTime
+    ? `PT${recipe.prepTime}M`
+    : undefined,
+  cookTime: recipe.cookTime
+    ? `PT${recipe.cookTime}M`
+    : undefined,
+  totalTime:
+    recipe.prepTime != null && recipe.cookTime != null
+      ? `PT${Number(recipe.prepTime) + Number(recipe.cookTime)}M`
+      : undefined,
+  recipeIngredient: recipe.ingredients?.map(
+    (ingredient) =>
+      `${ingredient.amount || ""} ${ingredient.measurement || ""} ${ingredient.name}`.trim()
+  ),
+  recipeInstructions: recipe.instructions?.map((step, index) => ({
+    "@type": "HowToStep",
+    name: `Step ${index + 1}`,
+    text: step,
+  })),
+};
   return (
     <>
+      <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(jsonLd),
+      }}
+    />
       <Hero
         title={recipe.title}
         imageUrl={heroImage}
