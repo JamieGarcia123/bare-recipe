@@ -1,7 +1,7 @@
 import { client, urlFor } from './client'
 
 export async function fetchblogs() {
-  const query = `*[_type == "cookingTips"]{
+  const query = `*[_type == "cookingTips"]  | order(_createdAt desc){
  ...,
     "slug": slug.current,
     
