@@ -110,35 +110,48 @@ export default async function Detail({ params }) {
       </p>
     );
   }
+const imageUrl = recipe.image
+  ? urlFor(recipe.image).width(1200).height(1200).url()
+  : null;
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Recipe",
-  name: recipe.title,
-  // image: imageUrl ? [imageUrl] : [],
-  description: recipe.snippet || "",
-  author: {
+  "name": recipe.title,
+  ...(imageUrl && {
+    "image": [imageUrl],
+  }),
+  "description": recipe.snippet || "",
+  "author": {
     "@type": "Organization",
-    name: "Bare Recipe",
+    "name": "Bare Recipe",
   },
-  prepTime: recipe.prepTime
-    ? `PT${recipe.prepTime}M`
-    : undefined,
-  cookTime: recipe.cookTime
-    ? `PT${recipe.cookTime}M`
-    : undefined,
-  totalTime:
-    recipe.prepTime != null && recipe.cookTime != null
-      ? `PT${Number(recipe.prepTime) + Number(recipe.cookTime)}M`
-      : undefined,
-  recipeIngredient: recipe.ingredients?.map(
-    (ingredient) =>
-      `${ingredient.amount || ""} ${ingredient.measurement || ""} ${ingredient.name}`.trim()
-  ),
-  recipeInstructions: recipe.instructions?.map((step, index) => ({
-    "@type": "HowToStep",
-    name: `Step ${index + 1}`,
-    text: step,
-  })),
+  ...(recipe.prepTime != null && {
+    "prepTime": `PT${Number(recipe.prepTime)}M`,
+  }),
+  ...(recipe.cookTime != null && {
+    "cookTime": `PT${Number(recipe.cookTime)}M`,
+  }),
+  ...(recipe.prepTime != null && recipe.cookTime != null && {
+    "totalTime": `PT${
+      Number(recipe.prepTime) + Number(recipe.cookTime)
+    }M`,
+  }),
+  ...(recipe.ingredients?.length && {
+    "recipeIngredient": recipe.ingredients.map(
+      (ingredient) =>
+        `${ingredient.amount || ""} ${
+          ingredient.measurement || ""
+        } ${ingredient.name || ""}`.trim()
+    ),
+  }),
+  ...(recipe.instructions?.length && {
+    "recipeInstructions": recipe.instructions.map((step, index) => ({
+      "@type": "HowToStep",
+      "position": index + 1,
+      "text": step,
+    })),
+  }),
 };
   return (
     <>
