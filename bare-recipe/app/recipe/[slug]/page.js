@@ -114,7 +114,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Recipe",
   name: recipe.title,
-  image: imageUrl ? [imageUrl] : [],
+  // image: imageUrl ? [imageUrl] : [],
   description: recipe.snippet || "",
   author: {
     "@type": "Organization",
